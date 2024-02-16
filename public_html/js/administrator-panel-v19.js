@@ -2751,7 +2751,7 @@ $('#transfer_button').on('click', function(e) {
 
 		$('#transfer_product_selection').val('0');
 		$('#supplierfrominventory').val('0');
-		$('#suppliertoinventory').val('0');
+		$('#suppliertoinventory').val('0');~
 		$('#supplierfrominventory option:selected').val(0);
 		$('#suppliertoinventory option:selected').val(0);
 		$('#suppliertransferqty').val(0);

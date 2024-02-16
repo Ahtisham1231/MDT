@@ -1437,3 +1437,10 @@ Stack trace:
 [15-Feb-2024 12:45:31 Europe/Berlin] PHP Parse error:  syntax error, unexpected variable "$sqlToCurrentqty" in C:\xampp\htdocs\mdt\src\controller\ajax\stock.php on line 738
 [15-Feb-2024 12:45:34 Europe/Berlin] PHP Parse error:  syntax error, unexpected variable "$sqlToCurrentqty" in C:\xampp\htdocs\mdt\src\controller\ajax\stock.php on line 738
 [15-Feb-2024 12:45:42 Europe/Berlin] PHP Parse error:  syntax error, unexpected variable "$sqlToCurrentqty" in C:\xampp\htdocs\mdt\src\controller\ajax\stock.php on line 738
+[16-Feb-2024 17:38:55 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'products.active' in 'where clause' in /var/www/html/MDT/src/classes/Database.php:76
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(76): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(250): Database->getColumn()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 76

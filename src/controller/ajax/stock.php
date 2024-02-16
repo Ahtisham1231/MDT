@@ -212,7 +212,7 @@ if (isset($_POST['getCalgaryStock'])) {
 
 	$sql .= " ORDER BY " . $columns[$params['order'][0]['column']] . " " . $params['order'][0]['dir'] . " LIMIT " . $params['start'] . ", " . $params['length'];
 
-	$totalRecords = $db->getColumn("SELECT COUNT(id) FROM products WHERE products.active = 1");
+	$totalRecords = $db->getColumn("SELECT COUNT(id) FROM products WHERE products.active = $active ");
 	$queryRecords = $db->getRows($sql);
 
 	$data = [];
@@ -240,8 +240,13 @@ if (isset($_POST['getCalgaryStock'])) {
 			calgary as c
 		ON
 			s.product_id = c.product_id
+		JOIN
+			products AS p
+		ON
+			c.product_id = p.id	
+			
+		WHERE p.active = $active 
 		";
-
 	$total 		= '$' . number_format($db->getColumn($sqlTotal), 2);
 
 	$json_data = array(
@@ -305,7 +310,7 @@ if (isset($_POST['getEdmontonStock'])) {
 
 	$sql .= " ORDER BY " . $columns[$params['order'][0]['column']] . " " . $params['order'][0]['dir'] . " LIMIT " . $params['start'] . " ," . $params['length'];
 
-	$totalRecords = $db->getColumn("SELECT COUNT(id) FROM products WHERE products.active = 1");
+	$totalRecords = $db->getColumn("SELECT COUNT(id) FROM products WHERE products.active = $active");
 	$queryRecords = $db->getRows($sql);
 
 	$data = [];
@@ -333,6 +338,12 @@ if (isset($_POST['getEdmontonStock'])) {
 			edmonton as e
 		ON
 			s.product_id = e.product_id
+		JOIN
+			products AS p
+		ON
+			e.product_id = p.id	
+			
+		WHERE p.active = $active	
 		";
 
 	$total 		= '$' . number_format($db->getColumn($sqlTotal), 2);
@@ -395,7 +406,7 @@ if (isset($_POST['getTorontoStock'])) {
 
 	$sql .= " ORDER BY " . $columns[$params['order'][0]['column']] . " " . $params['order'][0]['dir'] . " LIMIT " . $params['start'] . " ," . $params['length'];
 
-	$totalRecords = $db->getColumn("SELECT COUNT(id) FROM products WHERE products.active = 1");
+	$totalRecords = $db->getColumn("SELECT COUNT(id) FROM products WHERE products.active = $active");
 	$queryRecords = $db->getRows($sql);
 
 	$data = [];
@@ -423,7 +434,13 @@ if (isset($_POST['getTorontoStock'])) {
             toronto as t
         ON
             s.product_id = t.product_id
-        ";
+		JOIN
+			products AS p
+		ON
+			t.product_id = p.id	
+			
+		WHERE p.active = $active	
+		";
 
 	$total      = '$' . number_format($db->getColumn($sqlTotal), 2);
 
@@ -485,7 +502,7 @@ if (isset($_POST['getkelownaStock'])) {
 
 	$sql .= " ORDER BY " . $columns[$params['order'][0]['column']] . " " . $params['order'][0]['dir'] . " LIMIT " . $params['start'] . " ," . $params['length'];
 
-	$totalRecords = $db->getColumn("SELECT COUNT(id) FROM products WHERE products.active = 1");
+	$totalRecords = $db->getColumn("SELECT COUNT(id) FROM products WHERE products.active = $active");
 	$queryRecords = $db->getRows($sql);
 
 	$data = [];
@@ -513,7 +530,13 @@ if (isset($_POST['getkelownaStock'])) {
 		    kelowna as t
         ON
             s.product_id = t.product_id
-        ";
+		JOIN
+			products AS p
+		ON
+			t.product_id = p.id	
+			
+		WHERE p.active = $active	
+		";
 
 	$total      = '$' . number_format($db->getColumn($sqlTotal), 2);
 
