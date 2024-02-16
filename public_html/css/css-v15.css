@@ -1,0 +1,1677 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans');
+@import url('https://fonts.googleapis.com/css?family=Yesteryear');
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+
+html {
+	font-family: 'Merriweather Sans', sans-serif;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+* {
+	box-sizing: content-box;
+}
+
+/* Basic tag styling */
+b {
+	font-weight: 800;
+}
+input {
+	display: inline-block;
+	border-width: 2px;
+	border-style: inset;
+	font: 400 14px Arial;
+	text-align: center;
+}
+select {
+	font-size: 14px;
+	height: 20px;
+}
+h1 {
+	font-size: 40px;
+	margin: 24px 0px;
+	font-weight: 600;
+	text-align: center;
+}
+h2 {
+	font-size: 32px;
+	margin: 18px 0px;
+	font-weight: 600;
+}
+h3 {
+	font-size: 24px;
+	margin: 16px 0px;
+	font-weight: 600;
+	margin-left: 10px;
+}
+h4 {
+	font-size: 22px;
+	margin: 16px 0px;
+	font-weight: 600;
+	line-height: 24px;
+}
+h5 {
+	font-size: 20px;
+	margin: 16px 0px;
+	font-weight: 500;
+}
+h6 {
+	font-size: 18px;
+	margin: 16px 0px;
+	font-weight: 600;
+}
+p {
+    margin: 10px 0px;
+	padding: 0;
+	border: 0;
+	font-weight: 500;
+	font-size:16px;
+	vertical-align: baseline;
+	text-align: left;
+	line-height: 24px;
+}
+a {
+    color:#000!important;
+}
+
+     /*LANDING PAGE*/
+
+#w_e_i_main_wrapp #toggle_button  {
+    background-color: #aad6a7!important;
+    border-color:#cccccc!important;
+    margin-left: 10px;
+}
+
+#w_e_i_main_wrapp h5 {
+    font-size: 100px;
+    font-weight: 600;
+    font-family: 'Yesteryear', cursive;
+    text-align: center;
+    margin-top: 200px;
+    color: #000!important;
+}
+#w_e_i_main_wrapp p {
+    font-size: 100px;
+    font-weight: 600;
+    font-size: 18px;
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 30px;
+}
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+#w_e_i_main_wrapp #main_nav_wrapp {
+	background-color: #fff!important;
+	padding-top: 25px!important;
+	padding-bottom: 25px!important;
+}
+#w_e_i_main_wrapp #main_nav_wrapp a {
+	padding: 16px 11px!important;
+}
+.navbar-brand, .footer-copyright {
+	display: none;
+}
+#w_e_i_main_wrapp #bck_imag_land {
+	border-radius: 0px !important;
+	border:none !important;
+}
+#w_e_i_main_wrapp #bck_imag_land_img {
+	border-radius: 0px !important;
+	background-color: #fff;
+}
+#w_e_i_main_wrapp #slider_custom {
+	width: 50%!important;
+	display: block;
+	margin: 0 auto;
+	border-radius: 20px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+#loginButton {
+	margin-top: 6px;
+	background-color: #fff;
+	border: 1px solid #d1d1d1;
+	color: #000;
+}
+#slider_custom h4,#slider_custom h6 {
+	color: #000;
+}
+#w_e_i_main_wrapp #icon_color_1,#w_e_i_main_wrapp #icon_color_2 {
+	background-color: #01820e;
+	border-radius: 50%;
+	width: 35px;
+	height: 35px;
+}
+#prev_contr_carus h4 {
+	width: 25px;
+	height:25px;
+	font-size: 25px;
+	font-weight: 800;
+	color: #fff;
+	padding: 0px;
+	line-height: 35px;
+	margin: 0px;
+	text-align: center;
+	margin-left: 5px;
+}
+#next_contr_carus h4 {
+	width: 25px;
+	height:25px;
+	font-size: 25px;
+	font-weight: 800;
+	color: #fff;
+	padding: 0px;
+	line-height: 35px;
+	margin: 0px;
+	text-align: center;
+	margin-left: 5px;
+}
+#contact_main_wrapp {
+    /*background-image: linear-gradient(to right, #9823b2, #0066df, #007ec7, #008687, #028749)!important;*/
+    background-color: #fff;
+}
+#contact_main_wrapp h2 {
+	font-size: 36px;
+	font-family: 'Yesteryear', cursive;
+	color: #919191;
+	text-align: center;
+	font-weight: 600;
+}
+#contact_main_wrapp h3 {
+    font-size: 22px;
+    color: #919191;
+    text-align: center;
+    font-weight: 500;
+    margin: 10px 0px;
+}
+#contact_main_wrapp h4 {
+    font-size: 20px;
+    color: #919191;
+    text-align: center;
+    font-weight: 500;
+    margin: 10px 0px;
+}
+.propFormContc {
+	width: 700px;
+	margin: 25px auto;
+}
+footer {
+	display: none;
+}
+#footer_main {
+	background-color: #008687;
+	/*position: fixed;
+	bottom: 0px;
+	width: 100%;*/
+}
+#w_e_i_main_wrapp #footer_main .margCust {
+    margin-right: 75px!important;
+}
+
+    /*LANDING PAGE END*/
+
+    /*LOGIN PAGE*/
+#loginForm {
+	width: 400px;
+	margin: 0 auto;
+}
+#loginForm input {
+	display: block;
+	margin: 0 auto;
+}
+#loginForm h2 {
+	text-align: center;
+}
+
+
+    /*LOGIN PAGE END*/
+
+    /*ORDER FORM PAGE*/
+
+
+.propAllMainFormWrapp {
+    width: 400px;
+    margin:10px auto;
+    border:2px solid #515151;
+    border-radius: 7px;
+}
+.propAllSubbOrFor {
+    margin: 10px 0px;
+}
+.propAllMainFormWrapp h3 {
+    font-size: 18px;
+    margin: 10px 0px;
+    text-align: center;
+    color:#515151;
+}
+#add_new_supp_form {
+    width: 220px;
+    display: block;
+    margin-left: 20px;
+}
+#addNewCustomerWrapper {
+	width: 95%;
+}
+#addNewCustomerWrapper_subb_2 {
+	width: 95%;
+	margin: 0 auto;
+	overflow-x: scroll;
+    border: 1px solid #f2f2f2;
+}
+#editCustomersTable_wrapper {
+	width: 1000px;
+	margin: 0 auto;
+}
+#add_new_customer_form {
+	width: 220px;
+    display: block;
+    margin: 0 auto;
+}
+#addNewCustomerWrapper .mh3Class {
+    text-align: center;
+}
+#change_password_form {
+	width: 220px;
+    display: block;
+    margin: 0 auto;
+}
+#changePasswordWrapper .mh3Class {
+    text-align: center;
+}
+
+.disFlex {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+.margLeft {
+    margin-left: auto;
+}
+.addNewSuppClass {
+	width: 220px;
+}
+.addNewSuppClass label {
+	width: 70px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	line-height:26px;
+}
+.addNewSuppClass input {
+	width: 140px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.addNewSuppClass #new_supplier_balance {
+	margin-right:10px;
+}
+.invoiceNoteWrapper {
+	margin: 10px;
+}
+.invoiceNoteWrapper h4 {
+	text-align: center;
+}
+.invoiceNoteInner {
+	margin-bottom: 10px;
+}
+.invoiceNoteInner textarea {
+	display: block;
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    height: 100px;
+    line-height: 150%;
+}
+.propAllSmallFormInOut {
+    width: 90%;
+    margin: 5px 0px;
+}
+.marginFix {
+	margin: 5px -10px;
+}
+.propAllMainFormWrapp h4 {
+    font-size: 16px;
+    color:#515151;
+    margin: 0px;
+    line-height: 37px;
+}
+.propAllOutputsForm {
+    width: 200px;
+    height: 35px;
+    font-size: 16px;
+    color:#515151;
+    border: 1px solid #515151;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 5px;
+    margin-left: 5px;
+    text-align: left;
+}
+.propAddMore {
+    width: 80px;
+    height: 25px;
+    background-color:#515151;
+    color: #fff;
+    line-height: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 15px 10px;
+    text-align: center;
+    border-radius: 5px;
+	margin: 5px auto;
+}
+.propAddMore:hover {
+    cursor: pointer;
+}
+.propAllSubbOrFor {
+    border:1px solid #515151;
+    border-radius: 7px;
+    margin: 10px;
+}
+.propAllOutputPrWe {
+    width: 115px;
+    height: 35px;
+    background-color:#515151;
+    color: #fff;
+    border-radius: 7px;
+    margin-left: 5px;
+    outline: none;
+    text-align: left;
+    padding-left: 5px;
+    border:none;
+    font-size: 18px;
+    font-weight: 600;
+}
+.for_fill_out_with_products {
+	position: relative;
+	width: 370px;
+	margin: 10px 15px;
+	border:1px solid #515151;
+	border-radius: 5px;
+}
+.propListOrder {
+	width: 180px;
+	height: 24px;
+	background-color:#515151;
+	color: #fff;
+	text-align: left;
+	line-height: 24px;
+	border-radius: 5px;
+	font-size: 12px;
+	font-weight: 500;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.propListOrder1 {
+	width: 90px;
+	height: 24px;
+	background-color:#515151;
+	color: #fff;
+	text-align: left;
+	line-height: 24px;
+	border-radius: 5px;
+	font-size: 12px;
+	font-weight: 500;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.for_fill_out_with_products span {
+	margin-left: 5px;
+}
+.productRow {
+	position: relative;
+}
+.propAbsForErase {
+	position: absolute;
+	top: -10px;
+	right: -10px;
+	height: 20px;
+	width: 20px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 18px;
+    font-weight: 800;
+    background-color: #fff;
+    color:#515151;
+    border-radius: 5px;
+    border:1px solid #515151;
+}
+.propAbsForErase:hover {
+	cursor: pointer;
+}
+.propInputTypeSubmit {
+	width: 100px;
+	height: 30px;
+	border-radius: 5px;
+	outline: none;
+	border:3px solid #515151;
+	text-align: center;
+	font-size: 22px;
+	line-height: 28px;
+	display: block;
+	margin: 20px auto;
+	background-color:#fff;
+	color:#515151;
+}
+#supp_invo_subb_2 {
+	width: 300px;
+	height: 70px;
+	border: 1px solid #b0b1b2;
+	border-radius: 5px;
+}
+#supp_inv_main_wrap_head {
+	width: 900px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+#supp_invoice_wrapper #supp_inv_total {
+	font-weight: 600;
+}
+#supp_inv_main_wrap_head_2 {
+    width: 900px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	background-color: #e5e5e5;
+	border: 1px solid  #b0b1b2;
+	border-radius: 5px;
+}
+#supp_invo_subb_4 {
+	margin-top: 32px;
+	margin-left: 150px;
+	margin-right: auto;
+}
+#supp_invoice_wrapper #am_h3 {
+	text-align: right;
+}
+/*THUMB PANEL*/
+
+#form_thumb_main_wrapp {
+	width: 300px;
+	margin: 30px ;
+	display: inline-block;
+	text-align: left;
+}
+#form_thumb_main_wrapp .propThumbCl h5 {
+   text-align: left;
+}
+.thumb_img {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	margin: 10px auto;
+	display: block;
+	background-image: url("../images/m4.jpg");
+	display: none;
+}
+.thumb_img img {
+	width: 100%;
+}
+#form_thumb_main_wrapp h5 {
+	font-size: 16px;
+	font-weight: 600;
+	text-align: center;
+	color: #000;
+}
+#w_e_i_main_wrapp #form_thumb_main_wrapp h5 {
+	margin-top: 16px;
+	font-family: inherit;
+}
+.propThumbCl:hover {
+	cursor: pointer;
+}
+.propTableTest h1 {
+	font-weight: 600;
+	font-size: 30px;
+	text-align: center;
+	margin: 30px 0px;
+}
+.propTableTest p {
+	font-weight: 500;
+	font-size: 18px;
+	text-align: center;
+	margin: 100px auto;
+	width: 800px;
+}
+
+/* ADMINISTRATOR PANEL */
+
+#totalStockValue, #totalDebtToSuppliers, #totalCustomersDebt {
+	text-align: center
+}
+#supplierInvoicesTableWrapper {
+	display: none;
+	position: relative;
+}
+#supplierBalanceTableWrapper, #customerBalanceTableWrapper {
+	margin: 0 auto;
+	margin-top: 80px;
+	padding-top: 20px;
+	border-top: 1px solid #a8a8a8;
+	width: 800px;
+}
+#supplierBalanceTableWrapper #supplierName, #customerBalanceTableWrapper #customerName {
+	font-size: 20px;
+	font-weight: 600;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#suppliersTableWrapper #totalDebtToSuppliers, #customersTableWrapper #totalCustomersDebt {
+	font-size: 20px;
+	font-weight: 600;
+}
+#popup_supplier_invoice_details {
+	display: none;
+	position: absolute;
+	width: 100%;
+    height: 800px;
+    background-color: rgba(255,255,255,0.95);
+    z-index: 999;
+}
+#supp_invoice_wrapper p {
+	font-weight: 500;
+}
+#supp_invoice_wrapper {
+	width: 95%;
+	max-width: 1320px;
+	margin: 0 auto;
+	margin-top: 100px;
+	background-color: #fff;
+	padding: 10px;
+	border: 1px solid #a8a8a8;
+	border-bottom: 2px solid #515151;
+	border-right: 2px solid #515151;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	box-shadow: 10px 10px 5px #a8a8a8;
+}
+.supp_inv_row {
+	padding: 0px 10px;
+}
+.bckgWhite {
+	background-color: #fff;
+}
+.bckgGray {
+	background-color: #f2f2f2;
+}
+#supp_invoice_wrapper h3 {
+	text-align: left;
+	font-size: 20px;
+	font-weight: 500;
+	margin: 10px 10px;
+}
+#supp_invoice_wrapper h2 {
+	margin: 10px 10px;
+}
+#w_e_i_main_wrapp #supp_invoice_wrapper p {
+	width: 100%;
+	text-align: left;
+	padding: 0px;
+}
+#supp_invoice_wrapper h2 {
+	font-size: 22px;
+}
+#supp_invoice_wrapper button {
+	width:  80px;
+	height: 25px;
+	font-size: 16px;
+	font-weight: 600;
+	color: #fff;
+	background-color: #3d3d3d;
+	border-radius: 5px;
+	display: block;
+	margin: 20px;
+	outline: none;
+}
+#supp_inv_table {
+	width: 900px;
+	margin: 0 auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+.supp_inv_productNumber {
+	display: inline-block;
+	width: 50px;
+}
+.supp_inv_productName {
+	display: inline-block;
+	width: 200px;
+}
+.supp_inv_productQuantity {
+	display: inline-block;
+	width: 200px;
+}
+.supp_inv_productPrice {
+	display: inline-block;
+	width: 200px;
+}
+.supp_inv_productSum {
+	display: inline-block;
+	width: 200px;
+}
+.adminBoards {
+	display: none;
+}
+.inlineBlock {
+	display: inline-block;
+	vertical-align: top;
+}
+.inlineB {
+	display: inline-block;
+}
+.propHeadRowPara {
+	width: 120px;
+	height: 35px;
+	line-height: 35px;
+	box-sizing: border-box;
+	border: 1px solid #dddddd;
+	margin-bottom: 1px;
+}
+.propHeadRowParaTotals {
+	width: 120px;
+	height: 35px;
+	line-height: 35px;
+	box-sizing: border-box;
+	border: 1px solid #dddddd;
+	margin-bottom: 1px;
+	margin-top: 5px;
+
+}
+.propHeadRowPara1 {
+	width: 100px;
+	height: 35px;
+	line-height: 35px;
+	background-color:#4c4c4c;
+	color: #fff;
+	font-weight: 600;
+	box-sizing: border-box;
+	border: 1px solid #dddddd;
+}
+.oddClass {
+	background-color: #e8e8e8;
+}
+.evenClass {
+	background-color: #fff;
+}
+#monthlyBalanceWrapper, #select_period_balance_wrapper {
+	font-size: 12px;
+	text-align: center;
+}
+#month_balance_main_wrapper_subb, #s_month_balance_main_wrapper_subb {
+	width: 900px;
+	margin:0 auto;
+}
+/*Hover*/
+.custHoverRelative {
+	position: relative;
+	overflow: visible;
+}
+.customerBoughtHover{
+	position: absolute;
+	display: none;
+	top: 0px;
+	left: 120px;
+	width: 400px;
+	padding-left: 3px;
+	background-color: white;
+	border: 1px solid black;
+	z-index: 99;
+}
+.customerHoverRow {
+	display: flex;
+	border-bottom: 2px solid #e3e3e3;
+}
+.customerHoverCol {
+	width: 100px;
+	margin-right: 3px;
+}
+.custHoverName {
+	text-align: left;
+	width: 150px;
+}
+.custHoverQuantity {
+	width: 50px;
+}
+.redStar {
+	color: red;
+	font-size: 16px;
+	width: 10px;
+}
+/*
+#customersTable th, #stockTable th {
+	background-color: #515151;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+}
+#customersTable td, #stockTable td {
+	text-align: center;
+	padding: 1px 1px;
+	border: 1px solid gray;
+	vertical-align: middle;
+}
+*/
+#admin_dash_wrapper {
+	display: flex;
+}
+#admin_dash_wrapper .adminWrapper {
+	width: 320px;
+	margin: 0px;
+	border: 1px solid #e3e3e3;
+}
+.subMenuButton {
+	display: inline-block;
+}
+.propThumbCl .adminIcons {
+	display: inline-block;
+	width: 33px;
+	padding: 10px;
+	padding-right: 3px;
+}
+#w_e_i_main_wrapp #admin_dash_wrapper .propThumbCl h5 {
+	display: inline-block;
+	width: 240px;
+	font-size: 26px;
+	text-align: left;
+	font-weight: 500;
+}
+.propThumbCl .adminIcons i{
+	font-size: 26px;
+}
+.subMenuButton .fa-chevron-down {
+	display: none;
+}
+.adminSubMenus {
+	display: none;
+}
+#form_thumb_main_wrapp .adminSubMenus p {
+	width: 224px;
+	margin-left: 80px;
+	text-align: left;
+	padding-top: 10px;
+	font-weight: 500;
+	padding-left: 16px;
+}
+#form_thumb_main_wrapp .adminSubMenus p:hover {
+	background-color: #f7f7f7;
+}
+#admin_dash_wrapper .adminWrapper a {
+	width: 180px;
+	margin: 0 auto;
+}
+/* #admin_dash_wrapper #supplierInvoicesTableWrapper { */
+	/* margin: 20px auto; */
+	/* width: 95%; */
+/* } */
+#admin_dash_wrapper #supplierInvoicesTableWrapper {
+	margin: 20px auto;
+	width: 1000px;
+}
+/* #admin_dash_wrapper #supplierPaymentsTable_wrapper { */
+    /* width: 1050px; */
+    /* display: block; */
+    /* margin:0 auto; */
+/* } */
+#admin_dash_wrapper #supplierPaymentsTableWrapper {
+	margin: 20px auto;
+	width: 1000px;
+}
+#admin_dash_wrapper #customersTableWrapper {
+	margin: 20px auto;
+	width: 1000px;
+}
+#admin_dash_wrapper #customerPaymentsTableWrapper {
+	margin: 20px auto;
+	width: 1000px;
+}
+#admin_dash_wrapper #stockTableWrapper {
+	margin: 0 auto;
+	width: 1000px;
+}
+#admin_dash_wrapper #stockTableWrapper #totalStockValue {
+	font-size: 20px;
+	font-weight: 600;
+}
+#admin_dash_wrapper #customerInvoicesTableWrapper {
+	margin: 20px auto;
+	width: 1000px;
+}
+#admin_dash_wrapper #suppliersTableWrapper {
+	margin: 20px auto;
+	width: 1000px;
+}
+#admin_dash_wrapper #myOrdersTableWrapper {
+	width: 1000px;
+	margin: 20px auto;
+}
+#admin_dash_wrapper #productTableWrapper {
+	width: 1000px;
+	margin: 20px auto;
+}
+#admin_dash_wrapper #calgaryTableWrapper {
+	width: 1000px;
+	margin: 0 auto;
+}
+#admin_dash_wrapper #edmontonTableWrapper {
+	width: 1000px;
+	margin: 0 auto;
+}
+#admin_dash_wrapper #torontoTableWrapper {
+	width: 1000px;
+	margin: 0 auto;
+}
+#admin_dash_wrapper #kelownaTableWrapper {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+
+#suppliersTable_wrapper tbody button {
+	border-radius: 5px;
+	background-color: #fff;
+	border: 1px solid #dbdbdb;
+}
+#supplierInvoicesTable tbody button {
+	border-radius: 5px;
+	background-color: #fff;
+	border: 1px solid #dbdbdb;
+}
+#customersTableWrapper tbody button {
+	border-radius: 5px;
+	background-color: #fff;
+	border: 1px solid #dbdbdb;
+}
+#customerInvoicesTableWrapper tbody button {
+	border-radius: 5px;
+	background-color: #fff;
+	border: 1px solid #dbdbdb;
+}
+#stockTableWrapper tbody button {
+	border-radius: 5px;
+	background-color: #fff;
+	border: 1px solid #dbdbdb;
+}
+#supplierAddNewWrapper,#addNewCustomerWrapper {
+	margin: 20px;
+}
+#supplierPaymentsTableWrapper, #supplierAddNewWrapper, #addNewCustomerWrapper, #calgaryTableWrapper, #edmontonTableWrapper,#torontoTableWrapper,#kelownaTableWrapper, #transferWrapper, #monthlyBalanceWrapper, #select_period_balance_wrapper {
+	margin: 0 auto;
+}
+#supplierAddNewWrapper button,#addNewCustomerWrapper button {
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	padding: 5px 10px;
+	background-color: #3d3d3d;
+	color: #fff;
+	margin-right: 10px;
+}
+#supplierAddNewWrapper input,#addNewCustomerWrapper input {
+	height: 22px;
+}
+#editSuppliersTable_wrapper, #editCustomersTable_wrapper {
+	margin-top: 50px;
+	padding-top: 20px;
+	border-top: 3px solid #e3e3e3;
+}
+.phpMsg {
+	text-align: center;
+	display: none;
+}
+.inputError {
+	border: 1px solid red;
+}
+#add_new_customer_form label {
+	width: 200px;
+}
+#change_password_form label {
+	width: 200px;
+}
+#add_new_customer_form > div, #add_new_supp_form > div {
+	margin-bottom: 5px;
+}
+
+#add_new_customer {
+	margin: 0 auto;
+	display: block;
+}
+#button_change_password {
+	margin: 0 auto;
+	display: block;
+}
+#addNewProductWrapper {
+	margin: 0 auto;
+}
+#add_new_product_form label {
+	width: 155px;
+}
+#add_new_product_form > div {
+	margin-bottom: 5px;
+}
+#add_new_product_calagary label {
+	width: 155px;
+}
+#add_new_product_calagary > div {
+	margin-bottom: 5px;
+}
+#add_new_product_edmonton label {
+	width: 155px;
+}
+#add_new_product_edmonton > div {
+	margin-bottom: 5px;
+}
+#add_new_product_toronto label {
+	width: 155px;
+}
+#add_new_product_toronto > div {
+	margin-bottom: 5px;
+}
+#add_new_product_kelowna label {
+	width: 155px;
+}
+#add_new_product_kelowna > div {
+	margin-bottom: 5px;
+}
+#add_new_product {
+	display: block;
+	border-radius: 5px;
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    background-color: #3d3d3d;
+    color: #fff;
+    margin-right: 10px;
+}
+#select_period_balance_table_wrapper {
+	display: none;
+}
+#date_pick_form_wrapper  {
+	text-align: center;
+}
+
+/* DOCUMENTS PAGE START */
+
+#documents_wrapper {
+	display: flex;
+}
+.documentsRightSides {
+	display: none;
+}
+#form_thumb_subb_1 h5, #form_thumb_subb_2 h5, #form_thumb_subb_3 h5, #form_thumb_subb_4 h5, #form_thumb_subb_5 h5, #form_thumb_subb_6 h5 {
+	margin-left: 20px;
+}
+#documents_inner .docs_h1 > h1 {
+	margin: 0px;
+	padding-top: 24px;
+}
+
+/* DOCUMENT PAGE  END */
+
+
+
+
+
+/* USERS PANEL */
+
+#user_dash_wrapper #update_password_form {
+	margin: 0 auto;
+}
+#user_dash_wrapper #myOrdersTableWrapper, #user_dash_wrapper #form_requisition_to_supplier, #user_dash_wrapper #update_password_form {
+	display: none;
+}
+#user_dash_wrapper {
+	display: flex;
+}
+#user_dash_wrapper .userWrapper {
+	width: 200px;
+	margin: 0px;
+}
+#user_dash_wrapper .userWrapper a {
+	width: 180px;
+	margin: 0 auto;
+}
+#user_dash_wrapper #form_requisition_to_supplier {
+	margin: 0 auto;
+}
+#user_dash_wrapper #form_2_main_wrapp {
+	margin: 10px auto;
+}
+#user_dash_wrapper #myOrdersTableWrapper {
+	width: 1000px;
+	margin: 20px auto;
+}
+#w_e_i_main_wrapp .even {
+	background-color:#f2f2f2;
+}
+#myInvoicesTotal, #myBalance {
+	text-align: right;
+}
+
+.info_messages {
+	text-align: center;
+	color: red;
+}
+#add_new_product_form .addNewSuppClass {
+	height: 30px;
+}
+#add_new_product_form .addNewSuppClass input {
+	height: 24px;
+	padding: 0px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+#add_new_product_form .addNewSuppClass label {
+	width: 70px;
+	line-height: 16px;
+	font-size: 14px;
+	margin: 0px;
+	text-align: left;
+}
+#add_new_product_calagary .addNewSuppClass {
+	height: 30px;
+}
+#add_new_product_calagary .addNewSuppClass input {
+	height: 24px;
+	padding: 0px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+#add_new_product_calagary .addNewSuppClass label {
+	width: 70px;
+	line-height: 16px;
+	font-size: 14px;
+	margin: 0px;
+	text-align: left;
+}
+
+#add_new_product_edmonton .addNewSuppClass {
+	height: 30px;
+}
+#add_new_product_edmonton .addNewSuppClass input {
+	height: 24px;
+	padding: 0px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+#add_new_product_edmonton .addNewSuppClass label {
+	width: 70px;
+	line-height: 16px;
+	font-size: 14px;
+	margin: 0px;
+	text-align: left;
+}
+
+#add_new_product_toronto .addNewSuppClass {
+	height: 30px;
+}
+#add_new_product_toronto .addNewSuppClass input {
+	height: 24px;
+	padding: 0px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+#add_new_product_toronto .addNewSuppClass label {
+	width: 70px;
+	line-height: 16px;
+	font-size: 14px;
+	margin: 0px;
+	text-align: left;
+}
+#add_new_product_kelowna .addNewSuppClass {
+	height: 30px;
+}
+#add_new_product_kelowna .addNewSuppClass input {
+	height: 24px;
+	padding: 0px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+#add_new_product_kelowna .addNewSuppClass label {
+	width: 70px;
+	line-height: 16px;
+	font-size: 14px;
+	margin: 0px;
+	text-align: left;
+}
+
+#addNewProduct_wrapper {
+	margin-bottom: 10px;
+}
+#add_new_product_form {
+	width: 230px;
+}
+#add_new_product_form .addNewSuppClass {
+	width: 230px;
+}
+#add_new_product_calagary {
+	width: 230px;
+}
+#add_new_product_calagary .addNewSuppClass {
+	width: 230px;
+}
+#add_new_product_edmonton {
+	width: 230px;
+}
+#add_new_product_edmonton .addNewSuppClass {
+	width: 230px;
+}
+#add_new_product_toronto {
+	width: 230px;
+}
+#add_new_product_toronto .addNewSuppClass {
+	width: 230px;
+}
+#add_new_product_kelowna {
+	width: 230px;
+}
+#add_new_product_kelowna .addNewSuppClass {
+	width: 230px;
+}
+.marRight {
+	margin-right: 10px;
+}
+#edit_supplier_payment_wrapper {
+	width: 320px;
+	margin: 0 auto;
+}
+#edit_supplier_payment_wrapper h3 {
+	text-align: center;
+}
+#edit_supplier_payment_wrapper h4 {
+	margin: 0px;
+	line-height: 33px;
+	text-align: left;
+	width: 100px;
+}
+/*
+.propAllSmallFormInOut  {
+	width: 100%;
+}
+*/
+#edit_supplier_payment_wrapper input,#edit_supplier_payment_wrapper select {
+	margin-left: auto;
+}
+#edit_customer_payment_wrapper {
+	width: 320px;
+	margin: 0 auto;
+}
+#edit_customer_payment_wrapper h3 {
+	text-align: center;
+}
+#edit_customer_payment_wrapper h4 {
+	margin: 0px;
+	line-height: 33px;
+	text-align: left;
+	width: 100px;
+}
+#edit_customer_payment_wrapper input,#edit_customer_payment_wrapper select {
+	margin-left: auto;
+}
+/* #customersTable_wrapper { */
+	/* width: 800px; */
+	/* margin: 0 auto; */
+/* } */
+@media (max-width: 1400px) {
+	#customersTable {
+	width: 800px!important;
+	margin: 10px auto;
+	}
+	#admin_dash_wrapper #suppliersTableWrapper {
+    width:900px;
+    margin: 20px;
+    }
+    #user_dash_wrapper #myOrdersTableWrapper {
+	width: 900px;
+	margin: 20px;
+    }
+    #admin_dash_wrapper #supplierInvoicesTableWrapper {
+    width: 900px;
+    margin: 20px;
+    }
+    #admin_dash_wrapper #customersTableWrapper {
+    width: 900px;
+    margin: 20px;
+    }
+    #admin_dash_wrapper #customerInvoicesTableWrapper {
+    width: 900px;
+    margin: 20px;
+    }
+    #admin_dash_wrapper #stockTableWrapper {
+	width: 95%;
+	overflow-x: scroll;
+    border: 1px solid #f2f2f2;
+	}
+    #admin_dash_wrapper #supplierPaymentsTableWrapper {
+    width: 95%;
+    margin: 20px;
+    overflow-x: scroll;
+    border: 1px solid #f2f2f2;
+    }
+    #admin_dash_wrapper #customerPaymentsTableWrapper {
+    width: 95%;
+    margin: 20px;
+    overflow-x: scroll;
+    border: 1px solid #f2f2f2;
+    }
+    #stockTable_wrapper {
+    width: 1000px;
+    margin: 10px auto;
+    }
+    #admin_dash_wrapper #supplierPaymentsTable_wrapper, #admin_dash_wrapper #customerPaymentsTable_wrapper{
+    width: 1000px;
+    padding: 0px 10px;
+    }
+    #customersTable_wrapper {
+    width: 800px;
+    padding: 0px 10px;
+    margin: 0 auto;	
+    }
+    #customerBalanceTableWrapper {
+    width: 800px;
+    padding: 0px 10px;
+    margin: 0 auto;		
+    }
+    #productPricesTableWrapper {
+    width: 95%;
+    overflow-x: scroll;
+    border: 1px solid #f2f2f2;
+    margin: 0 auto;
+    }
+    #productPricesTable_wrapper {
+    width: 1000px;
+    margin:  10px auto;
+    }
+    #admin_dash_wrapper #calgaryTableWrapper {
+	width: 95%;
+	overflow-x: scroll;
+    border: 1px solid #f2f2f2;
+    }
+    #calgaryTable_wrapper {
+    width: 1000px;
+    margin: 10px auto;
+    }
+    #admin_dash_wrapper #edmontonTableWrapper {
+	width: 95%;
+	overflow-x: scroll;
+    border: 1px solid #f2f2f2;
+    }
+	#admin_dash_wrapper #torontoTableWrapper {
+		width: 95%;
+		overflow-x: scroll;
+		border: 1px solid #f2f2f2;
+	}
+	#admin_dash_wrapper #kelownaTableWrapper {
+		width: 95%;
+		overflow-x: scroll;
+		border: 1px solid #f2f2f2;
+	}
+	
+    #edmontonTable_wrapper {
+    width: 1000px;
+    margin: 10px auto;
+    }
+}
+@media (max-width: 1230px) {
+    #monthlyBalanceWrapper {
+    width: 95%;
+    margin: 0 auto;
+    overflow-x: scroll;
+    border: 1px solid #f2f2f2;
+    }
+    #month_balance_main_wrapper {
+    width: 900px;
+    margin: 10px auto;
+    }
+}
+@media (max-width: 1200px) {
+	#admin_dash_wrapper #suppliersTableWrapper {
+    overflow-x: scroll;
+    border: 1px solid #f2f2f2;
+    }
+    #user_dash_wrapper #myOrdersTableWrapper {
+	overflow-x: scroll;
+    border: 1px solid #f2f2f2;
+    }
+    #suppliersTable_wrapper,#supplierInvoicesTable_wrapper,#customersTable_wrapper,#customerInvoicesTable_wrapper,#stockTable_wrapper {
+    width: 800px;
+    padding: 10px;
+    }
+    #supplierBalanceTableWrapper {
+    width: 800px;
+    padding: 10px;	
+    }
+    #myOrdersTable_wrapper {
+    width: 800px;
+    padding: 10px;
+    }
+    #admin_dash_wrapper #supplierInvoicesTableWrapper {
+    overflow-x: scroll;
+    border: 1px solid #f2f2f2;
+    }
+    #admin_dash_wrapper #customersTableWrapper {
+    overflow-x: scroll;
+    border: 1px solid #f2f2f2;
+    }
+    #admin_dash_wrapper #customerInvoicesTableWrapper {
+    overflow-x: scroll;
+    border: 1px solid #f2f2f2;
+    }
+    #admin_dash_wrapper #stockTableWrapper {
+    overflow-x: scroll;
+    border: 1px solid #f2f2f2;
+    }
+    #add_new_customer_form {
+    width: 220px;
+    display: block;
+    margin-left:20px;
+    }
+	#change_password_form {
+		width: 220px;
+		display: block;
+		margin-left:20px;
+		}
+    #addNewCustomerWrapper .mh3Class {
+    text-align: left;
+    }
+	#changePasswordWrapper .mh3Class {
+		text-align: left;
+		}
+}
+@media (max-width: 900px) {
+	#addNewCustomerWrapper {
+	width: 95%;
+	margin: 0 auto;
+	}
+	#supplierAddNewWrapper {
+	width: 95%;
+	margin: 0 auto;
+	overflow-x: scroll;
+    border: 1px solid #f2f2f2;
+	}
+	#supplierAddNew_wrapper_2 {
+	width: 95%;
+	margin: 0 auto;
+	overflow-x: scroll;
+    border: 1px solid #f2f2f2;
+	}
+	#editSuppliersTable_wrapper {
+	width: 540px;
+	}
+	#editSuppliersTable td {
+	padding: 8px 10px!important;
+	}
+	#supplierAddNew_wrapper {
+	width: 330px;
+	margin: 0 auto;
+	}
+	#customerPaymentsTableWrapper {
+	width:95%;
+    margin: 0px auto;
+    overflow-x: scroll;
+    border: 1px solid #f2f2f2;	
+	}
+	#customerPaymentsTable_wrapper {
+    width: 565px;
+	}
+}
+@media (max-width: 800px) {
+    #addNewProductWrapper_2 {
+    width: 95%;
+    margin: 0 auto;
+    overflow-x: scroll;
+    border: 1px solid #f2f2f2;
+    }
+    #editProductsTable_wrapper {
+    width: 450px;
+    margin: 10px auto;	
+    }
+    #addNewProductWrapper {
+    width: 40%;
+    }
+}
+@media (max-width: 575px) {
+	#admin_dash_wrapper {
+    display: block;
+    }
+    #admin_dash_wrapper #suppliersTableWrapper {
+    width: 95%;
+    margin: 20px auto;
+    }
+    #admin_dash_wrapper .adminWrapper {
+    width: 95%;
+    margin: 20px auto;
+    display: block;
+    }
+    .adminLabels {
+    width:330px;
+    margin: 0 auto;
+    }
+    #admin_dash_wrapper #supplierInvoicesTableWrapper {
+    width:95%;
+    margin: 20px auto;
+    }
+    #admin_dash_wrapper #supplierPaymentsTableWrapper {
+    margin: 0 auto;
+    }
+    #add_new_supp_form {
+    margin: 0 auto;
+    }
+    #supplierAddNew_wrapper .mH3Cl {
+    text-align: center;
+    }
+    #admin_dash_wrapper #customersTableWrapper {
+    width:95%;
+    margin: 20px auto;
+    }
+    #admin_dash_wrapper #customerInvoicesTableWrapper {
+    width:95%;
+    margin: 20px auto;
+    }
+    #add_new_customer_form {
+    width: 220px;
+    display: block;
+    margin:0 auto;
+    }
+	#change_password_form {
+		width: 220px;
+		display: block;
+		margin:0 auto;
+		}
+    #addNewCustomerWrapper .mh3Class {
+    text-align: center;
+    }
+    #addNewProductWrapper {
+    width: 95%;
+    border: 1px solid #f2f2f2;
+    }
+    #add_new_product_form {
+    margin: 0 auto;
+    }
+	#add_new_product_calagary {
+		margin: 0 auto;
+	}
+	#add_new_product_edmonton {
+		margin: 0 auto;
+	}
+	#add_new_product_toronto {
+		margin: 0 auto;
+	}
+	#add_new_product_kelowna {
+		margin: 0 auto;
+	}
+    #addNewProduct_wrapper h3 {
+    	text-align: center;
+    }
+    #transferWrapper {
+    width: 240px;
+    margin: 0 auto;
+    }
+    #form_thumb_main_wrapp {
+    width: 300px;
+    margin:0 auto;
+    display:block;
+    text-align: center;
+    }
+    #documents_wrapper {
+    display: block;
+    }
+    #documents_right_side{
+    width: 300px;
+    display: block;
+    margin: 10px auto;
+    }
+    .propAllMainFormWrapp {
+    width: 300px;
+    }
+    #w_e_i_main_wrapp #documents_wrapper #form_thumb_main_wrapp h5 {
+    text-align: center;
+    font-size: 20px;
+    }
+    .propAllOutputsForm {
+    width: 150px;
+	}
+	.propListOrder {
+    width: 120px;
+	}
+	.propListOrder1 {
+    width: 60px;
+    font-size: 10px;
+    }
+    .for_fill_out_with_products {
+    width: 270px;
+    }
+    #set_inventories_wrapper {
+    width: 230px;
+    text-align: center;
+    margin: 20px auto;
+    }
+}
+.horizontal-form .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.horizontal-form .form-group label {
+    margin-right: 10px;
+}
+
+.horizontal-form .form-group input[type="text"],
+.horizontal-form .form-group input[type="number"] {
+    flex: 1;
+}
+
+.horizontal-form .form-group .redStar {
+    margin-left: 5px;
+}
+
+.horizontal-form .form-group button {
+    margin-left: 10px;
+}
