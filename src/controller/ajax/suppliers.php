@@ -610,7 +610,7 @@ if (isset($_POST['getSupplierPayments'])) {
 			$formattedAmount,
 			$statusName,
 			$showDate,
-			'<button ' . $disabledComplete . ' class="edit_payment_status" data-user-id="' . $row->user_id . '"  data-id="' . $row->id . '">Complete</button>',
+			'<button ' . $disabledComplete . ' class="edit_payment_status" data-user-id="' . $row->supplier . '"  data-id="' . $row->id . '">Complete</button>',
 			'<button '  . $disabledComplete . ' class="edit_payment_buttons"  data-user="' . $row->supplier . '" data-id="' . $row->id . '" data-amount="' . $row->amount . '" data-date="' . $dateForFrontEnd . '">Edit</button>',
 			'<button '  . $disabledComplete . ' class="delete_payment_buttons" data-supplier-id="' . $row->supplierID . '" data-id="' . $row->id . '" data-amount="' . $row->amount . '">Delete</button>',
 		];

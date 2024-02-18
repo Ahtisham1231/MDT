@@ -564,6 +564,8 @@ require_once SRC . 'controller/administrator-panel.php';
 							<th>Customer</th>
 							<th>Amount</th>
 							<th>Date</th>
+							<th>Status</th>
+							<th>Completed</th>
 							<th>Edit</th>
 							<th>Delete</th>
 						</tr>
@@ -660,6 +662,12 @@ require_once SRC . 'controller/administrator-panel.php';
 			</div>
 
 			<div id="stockTableWrapper" class="adminBoards">
+				<h3>Combined overview
+					<label class="switch toggleSwitch" data-invenName="combined">
+						<input type="checkbox" checked id="toggleSwitchCombined" name="toggleSwitchCombined" value="1">
+						<span class="slider round"></span>
+					</label>
+				</h3>
 				<table id="stockTable">
 					<thead>
 						<tr>

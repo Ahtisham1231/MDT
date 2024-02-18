@@ -406,10 +406,9 @@ function drawStockTable() {
 			"type"			: "POST",
 			"data"			: {"getStock" : true},
 			"dataSrc"		: function(response) {
-
 				total 			= response.total;
-				calgaryTotal	= response.calgaryTotal;
 				edmontonTotal	= response.edmontonTotal;
+				calgaryTotal	= response.calgaryTotal;
 				torontoTotal	= response.torontoTotal;
 				kelownaTotal	= response.kelownaTotal;
 				return response.data;
@@ -589,6 +588,59 @@ function toggleCheckbox(event) {
 		"footerCallback"	: function() {
 			let api = this.api();
 			$(api.column(4).footer()).html(total);
+        },
+		"deferRender"	: true
+	});
+		// alert(checkboxValue);
+		
+	}
+	if(invenName == 'combined'){
+		let total;
+		let calgaryTotal;
+		let edmontonTotal;
+		let torontoTotal;
+		let kelownaTotal;
+
+		var updatecheckbox = 1;
+		if(checkboxValue == 1){
+			updatecheckbox = 0;
+		}
+		
+		$('#stockTable').dataTable().fnDestroy(); 
+		
+		$('#toggleSwitchCombined').val(updatecheckbox);
+		let status = updatecheckbox;
+	stockTable = $('#stockTable').DataTable({
+		
+		"order"			: [[0, "asc"]],
+		"columnDefs" 	: [{
+			"targets"  		: 'no-sort',
+			"orderable"		: false,
+		}],
+		"pageLength"	: 50,
+		"processing"	: true,
+		"serverSide" 	: true,
+		"ajax" 			: {
+			"url"			: "../php/ajax.php",
+			"type"			: "POST",
+			"data"			: {"getStock" : true, "active" : status},
+			"dataSrc"		: function(response) {
+				total 			= response.total;
+				edmontonTotal	= response.edmontonTotal;
+				calgaryTotal	= response.calgaryTotal;
+				torontoTotal	= response.torontoTotal;
+				kelownaTotal	= response.kelownaTotal;
+				return response.data;
+			}
+        },
+		"drawCallback"		: function() {
+			let api = this.api();
+			$('#test').html(total);
+			$('#test2').html(total);
+			$(api.column(6).footer()).html(calgaryTotal);
+			$(api.column(7).footer()).html(edmontonTotal);
+			$(api.column(8).footer()).html(torontoTotal);
+			$(api.column(9).footer()).html(kelownaTotal);
         },
 		"deferRender"	: true
 	});
@@ -975,6 +1027,29 @@ $('#supplierPaymentsTable').on("click", ".edit_payment_status", function() {
 			console.log(response);
 		if (response === '1') {
 			drawSupplierPaymentsTable();
+		} else {
+			console.log('error');
+		}
+	});
+});
+
+$('#customerPaymentsTable').on("click", ".edit_payment_status", function() {
+	let id 		= $(this).data('id');
+	let total 	= $(this).data('total');
+	let userID 	= $(this).data('user-id');
+
+	let objForPHP = {
+		"id" 					: id,
+		"total" 				: total,
+		"userID" 				: userID,
+		"customerPaymentComplete" 	: true
+	};
+
+	let post = $.post('../php/ajax.php', objForPHP, null, '');
+	post.done(function(response) {
+			console.log(response);
+		if (response === '1') {
+			drawCustomerPaymentsTable();
 		} else {
 			console.log('error');
 		}
@@ -1599,6 +1674,7 @@ $('#customerInvoicesTable, #customerBalanceTable').on("click", ".buyer_invoice_d
 
 			$('#invoiceNoteOutput').val(response[0].note);
 			$('#supp_inv_table').html(html);
+			$('#supp_inv_row_main').show();
 			$('#popup_supplier_invoice_details').show();
 		}
 	});

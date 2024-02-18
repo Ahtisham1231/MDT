@@ -4,7 +4,7 @@ if (isset($_POST['getStock'])) {
 
 	$params = $columns = $totalRecords = $data = [];
 	$params = $_POST;
-
+	$active = isset($params['active']) ? intval($params['active']) : 1; // Default to active products if not provided
 	$columns = [
 		0 => 'id',
 		1 => 'name',
@@ -54,6 +54,8 @@ if (isset($_POST['getStock'])) {
 		   kelowna AS k
 		ON
 			s.product_id = k.product_id		
+		WHERE	
+			p.active = $active		
 		";
 
 	if (!empty($params['search']['value'])) {
@@ -66,7 +68,7 @@ if (isset($_POST['getStock'])) {
 
 	$sqlRec .=  " ORDER BY " . $columns[$params['order'][0]['column']] . "   " . $params['order'][0]['dir'] . "  LIMIT " . $params['start'] . " ," . $params['length'] . " ";
 
-	$totalRecords = $db->getColumn("SELECT COUNT(id) FROM products");
+	$totalRecords = $db->getColumn("SELECT COUNT(id) FROM products  WHERE active = $active");
 	$queryRecords = $db->getRows($sqlRec);
 
 	$data = [];
@@ -106,6 +108,12 @@ if (isset($_POST['getStock'])) {
 			calgary AS c
 		ON
 			s.product_id = c.id
+		JOIN
+			products AS p
+		ON
+			c.product_id = p.id	
+			
+		WHERE p.active = $active			
 		";
 
 	$sqlTotalEdmonton 	= "
@@ -117,6 +125,12 @@ if (isset($_POST['getStock'])) {
 			edmonton AS e
 		ON
 			s.product_id = e.id
+		JOIN
+			products AS p
+		ON
+			e.product_id = p.id	
+			
+		WHERE p.active = $active		
 		";
 	$sqlTotalToronto	= "
 		SELECT
@@ -127,6 +141,12 @@ if (isset($_POST['getStock'])) {
 		toronto AS t
 		ON
 			s.product_id = t.id
+		JOIN
+			products AS p
+		ON
+			t.product_id = p.id	
+			
+		WHERE p.active = $active		
 		";
 	$sqlTotalKelowna	= "
 		SELECT
@@ -137,6 +157,12 @@ if (isset($_POST['getStock'])) {
 		kelowna AS k
 		ON
 			s.product_id = k.id
+		JOIN
+			products AS p
+		ON
+			k.product_id = p.id	
+			
+		WHERE p.active = $active		
 		";
 
 
@@ -144,7 +170,7 @@ if (isset($_POST['getStock'])) {
 	$edmontonTotal		= '$' . number_format($db->getColumn($sqlTotalEdmonton), 2);
 	$torontoTotal		= '$' . number_format($db->getColumn($sqlTotalToronto), 2);
 	$kelownaTotal		= '$' . number_format($db->getColumn($sqlTotalKelowna), 2);
-	$total 				= '$' . number_format($db->getColumn("SELECT SUM(quantity * supplier_price) FROM stock"), 2);
+	$total 				= '$' . number_format($db->getColumn("SELECT SUM(quantity * supplier_price) FROM stock JOIN products AS p ON stock.product_id = p.id WHERE p.active = $active"), 2);
 
 	$json_data = array(
 		"draw"            	=> intval($params['draw']),
@@ -152,11 +178,12 @@ if (isset($_POST['getStock'])) {
 		"recordsFiltered" 	=> intval($totalRecords),
 		"data"            	=> $data,
 		"total"				=> $total,
-		"calgaryTotal"		=> $calgaryTotal,
 		"edmontonTotal"		=> $edmontonTotal,
+		"calgaryTotal"		=> $calgaryTotal,
 		"torontoTotal"		=> $torontoTotal,
 		"kelownaTotal"		=> $kelownaTotal,
 	);
+
 
 	die(json_encode($json_data, JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK));
 }

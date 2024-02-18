@@ -1444,3 +1444,31 @@ Stack trace:
 #2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
 #3 {main}
   thrown in /var/www/html/MDT/src/classes/Database.php on line 76
+[18-Feb-2024 19:56:40 UTC] PHP Parse error:  syntax error, unexpected variable "$active" in /var/www/html/MDT/src/controller/ajax/stock.php on line 488
+[18-Feb-2024 19:57:56 UTC] PHP Deprecated:  PDOStatement::fetchAll(): Passing null to parameter #1 ($mode) of type int is deprecated in /var/www/html/MDT/src/classes/Database.php on line 60
+[18-Feb-2024 19:57:56 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /var/www/html/MDT/src/controller/ajax/stock.php on line 172
+[18-Feb-2024 19:57:56 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /var/www/html/MDT/src/controller/ajax/stock.php on line 173
+[18-Feb-2024 19:57:56 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /var/www/html/MDT/src/controller/ajax/stock.php on line 175
+[18-Feb-2024 20:01:14 UTC] PHP Deprecated:  PDOStatement::fetchAll(): Passing null to parameter #1 ($mode) of type int is deprecated in /var/www/html/MDT/src/classes/Database.php on line 60
+[18-Feb-2024 20:01:14 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /var/www/html/MDT/src/controller/ajax/stock.php on line 173
+[18-Feb-2024 20:01:14 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /var/www/html/MDT/src/controller/ajax/stock.php on line 174
+[18-Feb-2024 20:01:14 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /var/www/html/MDT/src/controller/ajax/stock.php on line 176
+[18-Feb-2024 20:03:10 UTC] PHP Deprecated:  PDOStatement::fetchAll(): Passing null to parameter #1 ($mode) of type int is deprecated in /var/www/html/MDT/src/classes/Database.php on line 60
+[18-Feb-2024 20:03:10 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /var/www/html/MDT/src/controller/ajax/stock.php on line 173
+[18-Feb-2024 20:03:10 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /var/www/html/MDT/src/controller/ajax/stock.php on line 174
+[18-Feb-2024 20:03:10 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /var/www/html/MDT/src/controller/ajax/stock.php on line 176
+[18-Feb-2024 20:03:42 UTC] PHP Deprecated:  PDOStatement::fetchAll(): Passing null to parameter #1 ($mode) of type int is deprecated in /var/www/html/MDT/src/classes/Database.php on line 60
+[18-Feb-2024 20:03:42 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /var/www/html/MDT/src/controller/ajax/stock.php on line 173
+[18-Feb-2024 20:03:42 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /var/www/html/MDT/src/controller/ajax/stock.php on line 174
+[18-Feb-2024 20:03:42 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /var/www/html/MDT/src/controller/ajax/stock.php on line 176
+[18-Feb-2024 20:04:46 UTC] PHP Deprecated:  PDOStatement::fetchAll(): Passing null to parameter #1 ($mode) of type int is deprecated in /var/www/html/MDT/src/classes/Database.php on line 60
+[18-Feb-2024 20:04:46 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /var/www/html/MDT/src/controller/ajax/stock.php on line 173
+[18-Feb-2024 20:04:46 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /var/www/html/MDT/src/controller/ajax/stock.php on line 174
+[18-Feb-2024 20:04:46 UTC] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /var/www/html/MDT/src/controller/ajax/stock.php on line 176
+[18-Feb-2024 20:31:42 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.product_id' in 'on clause' in /var/www/html/MDT/src/classes/Database.php:76
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(76): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(173): Database->getColumn()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 76

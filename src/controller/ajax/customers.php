@@ -263,6 +263,7 @@ if (isset($_POST['getCustomerPayments'])) {
 		1 => 'customer',
 		2 => 'amount',
 		3 => 'date',
+		4 => 'status',
 	];
 
 	$where_condition = '';
@@ -273,7 +274,9 @@ if (isset($_POST['getCustomerPayments'])) {
 			u.username AS customer,
 			u.id AS customerID,
 			p.amount,
-			p.date
+			p.date,
+			p.status,
+			p.user_id
 		FROM
 			payments as p
 		JOIN
@@ -308,14 +311,27 @@ if (isset($_POST['getCustomerPayments'])) {
 		$formattedAmount	= '$' . number_format($row->amount, 2);
 		$showDate 			= date('m-d-Y', strtotime($row->date));
 		$dateForFrontEnd	= date('Y-m-d', strtotime($row->date));
+		$disabledComplete 	= $row->status == 3 ? ' disabled' : '';
 
+		if ($row->status == 1) {
+			$statusName = 'processing';
+		} elseif ($row->status == 2) {
+			$statusName = 'pending';
+		} else {
+			$statusName = 'complete';
+		}
+		if ($disabledComplete != '') {
+			$disabled = ' disabled';
+		}
 		$data[] = [
 			$row->id,
 			$row->customer,
 			$formattedAmount,
 			$showDate,
-			'<button class="edit_payment_buttons" data-customer-id="' . $row->customerID . '" data-payment-id="' . $row->id . '" data-amount="' . $row->amount . '" data-date="' . $dateForFrontEnd . '">Edit</button>',
-			'<button class="delete_payment_buttons" data-customer-id="' . $row->customerID . '" data-payment-id="' . $row->id . '" data-amount="' . $row->amount . '">Delete</button>',
+			$statusName,
+			'<button ' . $disabledComplete . ' class="edit_payment_status" data-user-id="' . $row->customerID . '"  data-id="' . $row->id . '">Complete</button>',
+			'<button' . $disabledComplete . '  class="edit_payment_buttons" data-customer-id="' . $row->customerID . '" data-payment-id="' . $row->id . '" data-amount="' . $row->amount . '" data-date="' . $dateForFrontEnd . '">Edit</button>',
+			'<button ' . $disabledComplete . '  class="delete_payment_buttons" data-customer-id="' . $row->customerID . '" data-payment-id="' . $row->id . '" data-amount="' . $row->amount . '">Delete</button>',
 		];
 	}
 
@@ -768,6 +784,28 @@ if (isset($_POST["supplierInvoiceComplete"])) {
 	}
 }
 if (isset($_POST["supplierPaymentComplete"])) {
+
+	$id 		= $_POST['id'];
+	// $total		= $_POST['total'];
+	$userID		= $_POST['userID'];
+
+	$db->beginTransaction();
+
+	//	invoice status
+	$sql 				= "UPDATE payments SET status = 3 WHERE id = :id";
+	$update 			= $db->updateRow($sql, ['id' => $id]);
+
+
+	if (!($update)) {
+		$db->rollBack();
+		die('0');
+	} else {
+		$db->commit();
+		die('1');
+	}
+}
+
+if (isset($_POST["customerPaymentComplete"])) {
 
 	$id 		= $_POST['id'];
 	// $total		= $_POST['total'];
