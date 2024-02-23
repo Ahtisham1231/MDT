@@ -1573,3 +1573,160 @@ Stack trace:
 #2 /var/www/html/MDT/public_html/php/ajax.php(8): require_once('...')
 #3 {main}
   thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[23-Feb-2024 16:52:50 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'quantity' in order clause is ambiguous in /var/www/html/MDT/src/classes/Database.php:58
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(58): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(72): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[23-Feb-2024 16:52:56 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'total' in 'order clause' in /var/www/html/MDT/src/classes/Database.php:58
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(58): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(72): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[23-Feb-2024 16:53:00 UTC] PHP Warning:  Undefined array key 5 in /var/www/html/MDT/src/controller/ajax/stock.php on line 69
+[23-Feb-2024 16:53:00 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'asc  LIMIT 0 ,50' at line 41 in /var/www/html/MDT/src/classes/Database.php:58
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(58): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(72): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[23-Feb-2024 16:53:03 UTC] PHP Warning:  Undefined array key 6 in /var/www/html/MDT/src/controller/ajax/stock.php on line 69
+[23-Feb-2024 16:53:03 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'asc  LIMIT 0 ,50' at line 41 in /var/www/html/MDT/src/classes/Database.php:58
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(58): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(72): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[23-Feb-2024 16:53:05 UTC] PHP Warning:  Undefined array key 7 in /var/www/html/MDT/src/controller/ajax/stock.php on line 69
+[23-Feb-2024 16:53:05 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'asc  LIMIT 0 ,50' at line 41 in /var/www/html/MDT/src/classes/Database.php:58
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(58): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(72): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[23-Feb-2024 16:53:07 UTC] PHP Warning:  Undefined array key 8 in /var/www/html/MDT/src/controller/ajax/stock.php on line 69
+[23-Feb-2024 16:53:07 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'asc  LIMIT 0 ,50' at line 41 in /var/www/html/MDT/src/classes/Database.php:58
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(58): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(72): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[23-Feb-2024 16:53:09 UTC] PHP Warning:  Undefined array key 9 in /var/www/html/MDT/src/controller/ajax/stock.php on line 69
+[23-Feb-2024 16:53:09 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'asc  LIMIT 0 ,50' at line 41 in /var/www/html/MDT/src/classes/Database.php:58
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(58): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(72): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[23-Feb-2024 16:53:12 UTC] PHP Warning:  Undefined array key 10 in /var/www/html/MDT/src/controller/ajax/stock.php on line 69
+[23-Feb-2024 16:53:12 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'asc  LIMIT 0 ,50' at line 41 in /var/www/html/MDT/src/classes/Database.php:58
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(58): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(72): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[23-Feb-2024 16:53:15 UTC] PHP Warning:  Undefined array key 11 in /var/www/html/MDT/src/controller/ajax/stock.php on line 69
+[23-Feb-2024 16:53:15 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'asc  LIMIT 0 ,50' at line 41 in /var/www/html/MDT/src/classes/Database.php:58
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(58): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(72): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[23-Feb-2024 16:53:23 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'quantity' in order clause is ambiguous in /var/www/html/MDT/src/classes/Database.php:58
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(58): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(72): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[23-Feb-2024 17:06:18 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'quantity' in order clause is ambiguous in /var/www/html/MDT/src/classes/Database.php:58
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(58): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(72): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[23-Feb-2024 17:06:26 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'quantity' in order clause is ambiguous in /var/www/html/MDT/src/classes/Database.php:58
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(58): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(72): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[23-Feb-2024 17:08:28 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'quantity' in order clause is ambiguous in /var/www/html/MDT/src/classes/Database.php:58
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(58): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(74): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[23-Feb-2024 17:10:01 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'quantity' in order clause is ambiguous in /var/www/html/MDT/src/classes/Database.php:58
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(58): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(74): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[23-Feb-2024 17:10:03 UTC] PHP Deprecated:  PDOStatement::fetchAll(): Passing null to parameter #1 ($mode) of type int is deprecated in /var/www/html/MDT/src/classes/Database.php on line 60
+[23-Feb-2024 17:15:34 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'quantity' in order clause is ambiguous in /var/www/html/MDT/src/classes/Database.php:58
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(58): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(74): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[23-Feb-2024 17:18:38 UTC] PHP Deprecated:  PDOStatement::fetchAll(): Passing null to parameter #1 ($mode) of type int is deprecated in /var/www/html/MDT/src/classes/Database.php on line 60
+[23-Feb-2024 17:20:33 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'total' in 'order clause' in /var/www/html/MDT/src/classes/Database.php:58
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(58): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(77): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[23-Feb-2024 17:20:40 UTC] PHP Warning:  Undefined array key 5 in /var/www/html/MDT/src/controller/ajax/stock.php on line 70
+[23-Feb-2024 17:20:40 UTC] PHP Warning:  Undefined array key 5 in /var/www/html/MDT/src/controller/ajax/stock.php on line 74
+[23-Feb-2024 17:20:40 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'asc  LIMIT 0 ,50' at line 41 in /var/www/html/MDT/src/classes/Database.php:58
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(58): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(77): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[23-Feb-2024 17:20:43 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'total' in 'order clause' in /var/www/html/MDT/src/classes/Database.php:58
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(58): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(77): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[23-Feb-2024 17:20:51 UTC] PHP Warning:  Undefined array key 5 in /var/www/html/MDT/src/controller/ajax/stock.php on line 70
+[23-Feb-2024 17:20:51 UTC] PHP Warning:  Undefined array key 5 in /var/www/html/MDT/src/controller/ajax/stock.php on line 74
+[23-Feb-2024 17:20:51 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'asc  LIMIT 0 ,50' at line 41 in /var/www/html/MDT/src/classes/Database.php:58
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(58): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(77): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[23-Feb-2024 19:06:03 UTC] PHP Warning:  Undefined array key "order" in /var/www/html/MDT/src/controller/ajax/stock.php on line 6
+[23-Feb-2024 19:06:03 UTC] PHP Warning:  Trying to access array offset on value of type null in /var/www/html/MDT/src/controller/ajax/stock.php on line 6
+[23-Feb-2024 19:06:03 UTC] PHP Warning:  Trying to access array offset on value of type null in /var/www/html/MDT/src/controller/ajax/stock.php on line 6
+[23-Feb-2024 19:06:03 UTC] PHP Warning:  Undefined array key "" in /var/www/html/MDT/src/controller/ajax/stock.php on line 6
+[23-Feb-2024 19:09:48 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'quantity' in order clause is ambiguous in /var/www/html/MDT/src/classes/Database.php:58
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(58): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/stock.php(76): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 58

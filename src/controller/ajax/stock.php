@@ -3,15 +3,27 @@
 if (isset($_POST['getStock'])) {
 
 	$params = $columns = $totalRecords = $data = [];
+
 	$params = $_POST;
 	$active = isset($params['active']) ? intval($params['active']) : 1; // Default to active products if not provided
 	$columns = [
-		0 => 'id',
-		1 => 'name',
-		2 => 'quantity',
-		3 => 'price',
-		4 => 'total',
+		// 0 => 'id',
+		0 => 'name',
+		1 => 'cquantity',
+		2 => 'equantity',
+		3 => 'tquantity',
+		4 => 'kquantity',
+		5 => 'creserved',
+		6 => 'ereserved',
+		7 => 'treserved',
+		8 => 'kreserved',
+		9 => 'price',
+		10 => 'ctotal',
+		11 => 'ttotal',
+		12 => 'ktotal',
+		13 => 'etotal',
 	];
+
 
 	$where_condition = '';
 
@@ -65,6 +77,7 @@ if (isset($_POST['getStock'])) {
 	if (isset($where_condition) && $where_condition != '') {
 		$sqlRec .= $where_condition;
 	}
+
 
 	$sqlRec .=  " ORDER BY " . $columns[$params['order'][0]['column']] . "   " . $params['order'][0]['dir'] . "  LIMIT " . $params['start'] . " ," . $params['length'] . " ";
 
