@@ -418,10 +418,10 @@ function drawStockTable() {
 			let api = this.api();
 			$('#test').html(total);
 			$('#test2').html(total);
-			$(api.column(6).footer()).html(calgaryTotal);
-			$(api.column(7).footer()).html(edmontonTotal);
-			$(api.column(8).footer()).html(torontoTotal);
-			$(api.column(9).footer()).html(kelownaTotal);
+			$(api.column(10).footer()).html(calgaryTotal);
+			$(api.column(11).footer()).html(edmontonTotal);
+			$(api.column(12).footer()).html(torontoTotal);
+			$(api.column(13).footer()).html(kelownaTotal);
         },
 		"deferRender"	: true
 	});

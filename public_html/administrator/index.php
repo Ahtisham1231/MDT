@@ -708,12 +708,19 @@ require_once SRC . 'controller/administrator-panel.php';
 							<th></th>
 							<th></th>
 							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
 							<th>Calgary Total</th>
 							<th>Edmonton Total</th>
 							<th>Toronto Total</th>
 							<th>Kelwona Total</th>
 						</tr>
 						<tr>
+							<th></th>
+							<th></th>
+							<th></th>
 							<th></th>
 							<th></th>
 							<th></th>
