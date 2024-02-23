@@ -764,6 +764,19 @@ if (isset($_POST['setTransfer'])) {
 		die($msgHTML);
 	}
 	$db->beginTransaction();
+	// Check if the quantity to transfer exceeds the available quantity
+	$sqlForAvailableCurrentqtyquery = "SELECT quantity FROM $fromtable WHERE product_id = $productID";
+
+	$currentFromQuantity = $db->getColumn($sqlForAvailableCurrentqtyquery);
+
+	if ($currentFromQuantity < $qty) {
+		$db->rollBack();
+		$msgHTML = '
+            <div style="width: 300px; background-color: #f2f2f2; padding: 10px; margin: 0 auto;">
+                <i style="color: red" class="fas fa-exclamation-triangle"></i> Quantity exceeds available quantity. Available quantity: ' . $currentFromQuantity . ' units.
+            </div>';
+		die($msgHTML);
+	}
 	$sqlFromCurrentqtyquery 	= "SELECT quantity - $qty FROM $fromtable where product_id = $productID";
 	$sqlToCurrentqtyquery 	= "SELECT quantity + $qty FROM $totable where product_id = $productID";
 

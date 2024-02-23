@@ -180,7 +180,8 @@ if (isset($_POST['getCustomerInvoices'])) {
 			i.amount as total,
 			ist.status as status,
 			i.user_id as userid,
-			i.date as date
+			i.date as date,
+			i.inventory as inventory 
 		FROM
 			invoices as i
 		JOIN
@@ -235,8 +236,8 @@ if (isset($_POST['getCustomerInvoices'])) {
 			$row->status,
 			$showDate,
 			'<button class="buyer_invoice_details" data-date="' . $showDate . '" data-total="' . $row->total . '" data-user="' . $row->user . '" data-id="' . $row->id . '">Details</button>',
-			'<button ' . $disabledComplete . ' class="buyer_invoice_status" data-user-id="' . $row->userid . '" data-total="' . $row->total . '" data-id="' . $row->id . '">Complete</button>',
-			'<button ' . $disabledEdit . ' class="edit_customer_invoice" data-date="' . $row->date . '" data-total="' . $row->total . '" data-customer="' . $row->userid . '" data-id="' . $row->id . '">Edit</button>',
+			'<button ' . $disabledComplete . ' class="buyer_invoice_status" data-inventory="' . $row->inventory . '" data-user-id="' . $row->userid . '" data-total="' . $row->total . '" data-id="' . $row->id . '">Complete</button>',
+			'<button ' . $disabledEdit . ' class="edit_customer_invoice" data-inventory="' . $row->inventory . '" data-date="' . $row->date . '" data-total="' . $row->total . '" data-customer="' . $row->userid . '" data-id="' . $row->id . '">Edit</button>',
 			'<button ' . $disabledDelete . ' class="delete_customer_invoice" data-customer="' . $row->userid . '" data-id="' . $row->id . '">Delete</button>',
 		];
 		$i++;
@@ -419,7 +420,7 @@ if (isset($_POST['customerInvoiceSubmit'])) {
 	$month 			= substr($date, 5, 2);
 	$year 			= substr($date, 0, 4);
 	$note			= trim($_POST['note']);
-
+	$inventory      = $_POST['inventory'];
 	//	check if date format is valid
 	if (!preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", $date)) {
 
@@ -461,6 +462,7 @@ if (isset($_POST['customerInvoiceSubmit'])) {
 			date,
 			month,
 			year,
+			inventory,
 			note
 		) VALUES (
 			:type,
@@ -471,6 +473,7 @@ if (isset($_POST['customerInvoiceSubmit'])) {
 			:date,
 			:month,
 			:year,
+			:inventory,
 			:note
 		)";
 
@@ -483,6 +486,7 @@ if (isset($_POST['customerInvoiceSubmit'])) {
 		'date'			=> $date,
 		'month'			=> $month,
 		'year'			=> $year,
+		'inventory'		=> $inventory,
 		'note'			=> $note,
 	]);
 
@@ -708,10 +712,10 @@ if (isset($_POST['buyerInvoiceDetails'])) {
 }
 //	Change buyer invoice status to Complete
 if (isset($_POST["buyerInvoiceComplete"])) {
-
 	$id 		= $_POST['id'];
 	$total		= $_POST['total'];
 	$userID		= $_POST['userID'];
+	$inventory	= $_POST['inventory'];
 
 	$db->beginTransaction();
 
@@ -726,10 +730,12 @@ if (isset($_POST["buyerInvoiceComplete"])) {
 	$updateStockSql 	= "UPDATE stock SET quantity = quantity - :quantity1, quantity_reserved = quantity_reserved - :quantity2 WHERE product_id = :product_id";
 	$updateStock 		= $db->prepare($updateStockSql);
 
-	$inventory = $db->getColumn("SELECT inventory FROM users WHERE id = :id", ['id' => $userID]);
-	$inventory = $inventory ? 'calgary' : 'edmonton';
+	// $inventory = $db->getColumn("SELECT inventory FROM users WHERE id = :id", ['id' => $userID]);
+	// $inventory = $inventory ? 'calgary' : 'edmonton';
 
 	$updateInventorySql = "UPDATE $inventory SET quantity = quantity - :quantity1, quantity_reserved = quantity_reserved - :quantity2 WHERE product_id = :product_id";
+	// echo $updateInventorySql;
+	// die;
 	$updateInventory 	= $db->prepare($updateInventorySql);
 
 	foreach ($products as $product) {
@@ -753,13 +759,40 @@ if (isset($_POST["buyerInvoiceComplete"])) {
 		'total' 	=> $total,
 		'user_id'	=> $userID
 	]);
-
+	// print_r($update2);
+	// die('yes');
 	if (!($update && $update2)) {
 		$db->rollBack();
 		die('0');
 	} else {
 		$db->commit();
 		die('1');
+	}
+}
+if (isset($_POST['checkInventoryQuantity'])) {
+	$fromtable 	= $_POST['inventory'];
+	$qty 	= $_POST['quantity'];
+	$productID 	= $_POST['productID'];
+
+	$db->beginTransaction();
+	// Check if the quantity to transfer exceeds the available quantity
+	$sqlForAvailableCurrentqtyquery = "SELECT quantity FROM $fromtable WHERE product_id = $productID";
+
+	$currentFromQuantity = $db->getColumn($sqlForAvailableCurrentqtyquery);
+
+	if ($currentFromQuantity < $qty) {
+		$db->rollBack();
+		$response['ok'] 	= 0;
+		$response['html']  = '
+            <div style="width: 300px; background-color: #f2f2f2; padding: 10px; margin: 0 auto;">
+                <i style="color: red" class="fas fa-exclamation-triangle"></i> Quantity exceeds available quantity. Available quantity: ' . $currentFromQuantity . ' units.
+            </div>';
+		die(json_encode($response, JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK));
+	} else {
+		$response['ok'] 	= 1;
+
+
+		die(json_encode($response, JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK));
 	}
 }
 if (isset($_POST["supplierInvoiceComplete"])) {

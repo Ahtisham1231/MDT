@@ -186,7 +186,7 @@ require_once CONT . 'documents.php';
 								</div>
 								<div class="propAllSmallFormInOut disFlex">
 									<h4>Inventories</h4>
-									<select id="customerInvoiceProductsinverntories" class="propAllOutputsForm">
+									<select id="customerInvoiceProductsinverntories" class="propAllOutputsForm" required>
 										<option value="">Please Select</option>
 										<option value="calgary">Calgary</option>
 										<option value="edmonton">Edmonton</option>
@@ -221,6 +221,7 @@ require_once CONT . 'documents.php';
 										<input id="customerInvoiceProductPriceInput" type="number" placeholder="Price" class="propAllOutputsForm">
 									</div>
 									<div id="addProductCustomer" class="propAddMore">Add</div>
+									<div id="qtyerror"></div>
 								</div>
 								<div class="invoiceNoteWrapper">
 									<h4> Note </h4>

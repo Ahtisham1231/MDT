@@ -1686,11 +1686,13 @@ $('#customerInvoicesTable').on("click", ".buyer_invoice_status", function() {
 	let id 		= $(this).data('id');
 	let total 	= $(this).data('total');
 	let userID 	= $(this).data('user-id');
+	let inventory 	= $(this).data('inventory');
 
 	let objForPHP = {
 		"id" 					: id,
 		"total" 				: total,
 		"userID" 				: userID,
+		"inventory" 			: inventory,
 		"buyerInvoiceComplete" 	: true
 	};
 
@@ -1714,14 +1716,16 @@ $('#customerInvoicesTable').on("click", ".edit_customer_invoice", function() {
 	let date 		= $(this).data('date');
 	let total 		= $(this).data('total');
 	let customerID 	= $(this).data('customer');
+	let inventory 	= $(this).data('inventory');
 
 	//	adjust form inputs
 	$('#customerInvoiceDateInput').val(date);
 	$('#customerInvoiceCustomerSelect').val(customerID);
+	$('#customerInvoiceProductsinverntories').val(inventory);
 	$('#customerInvoicePriceTotal').val(total);
 	$('#customerInvoiceNumber').html('Invoice ID ' + id);
 	$('#customerInvoiceNumber').data('id', id);
-
+	$('#customerInvoiceProductsinverntories').prop('disabled', true);
 	let objForPHP = {
 		'getCustomerInvoiceForEditing' 	: true,
 		'invoiceID'						: id
@@ -1732,7 +1736,7 @@ $('#customerInvoicesTable').on("click", ".edit_customer_invoice", function() {
 
 		if (response) {
 
-			console.log(response);
+			// console.log(response);
 
 			$('#form_requisition_to_customer .for_fill_out_with_products').html('');
 
@@ -1801,7 +1805,6 @@ function addProductToEditedCustomerInvoice(productID, product, quantity, price) 
 
 //	adding products to edited customer invoice
 $('#addProductCustomer').on('click', function() {
-
 	let quantity 	= parseFloat($('#customerInvoiceProductQuantityInput').val());
 	let price 		= parseFloat($('#customerInvoiceProductPriceInput').val());
 	let productID 	= $('#customerInvoiceProductsSelection').find(':selected').val();

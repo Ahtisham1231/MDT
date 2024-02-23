@@ -280,41 +280,74 @@ $('#form_requisition_to_customer .for_fill_out_with_products').on("click", ".pro
 
 //	add new product to invoice
 $('#addProductCustomer').on('click', function() {
+	$('#customerInvoiceProductsinverntories').prop('disabled', true);
+
 	$('#labelsContainerCustomer').show();
 	let quantity 	= parseFloat( $('#customerInvoiceProductQuantityInput').val() );
 	let price 		= parseFloat( $('#customerInvoiceProductPriceInput').val());
 	let productID 	= $('#customerInvoiceProductsSelection').find(':selected').val();
 	let product 	= $('#customerInvoiceProductsSelection').find(':selected').html();
+	var inventory   = $('#customerInvoiceProductsinverntories').val();
+	if ( ! isNaN(quantity) && (inventory != '') ){
+		let objForPHP 	= {
+			'checkInventoryQuantity' : true,
+			'inventory' 		: inventory,
+			'quantity' 		    : quantity,
+			'productID' 		: productID
+		};
+		console.log('yes');
+		let post = $.post('../php/ajax.php', objForPHP, '', 'json');
+		post.done(function(response) {
+			if (response.ok == '0') {
+				alert('yess');
+				$('#customerInvoiceProductsSelection').addClass("inputError");
+				
+					$('#qtyerror').html(response.html);
+					$('#qtyerror').show(400);
+		
+					timeOutHandler = setTimeout(function() {
+						$('#qtyerror').hide(400);
+					}, 4000);
+					
+				
+			}else{
+				if ( ! isNaN(quantity) && (quantity > 0) && ! isNaN(price) && (price > 0) && (product != 'Please Select')) {
 
-	if ( ! isNaN(quantity) && (quantity > 0) && ! isNaN(price) && (price > 0) && (product != 'Please Select')) {
-
-		$('#customerInvoiceProductQuantityInput, #customerInvoiceProductPriceInput, #customerInvoiceProductsSelection').removeClass("inputError");
-		addValuesToObjectAndAddRowCustomer(productID, product, quantity, price, orderNumberCustomer);
-		$('#customerInvoiceProductQuantityInput, #customerInvoiceProductPriceInput').val('');
-		$('#customerInvoiceProductsSelection').val('0');
-
-		//	adjust total price
-		let currentTotal 	= parseFloat($('#customerInvoicePriceTotal').val());
-		let currentTotalInt = currentTotal ?  currentTotal : 0;
-		let newTotal 		= Math.round( 100 * (currentTotalInt + (quantity * price)) ) / 100;
-
-		$('#customerInvoicePriceTotal').val(newTotal);
-		$('#addProductCustomer').removeClass("inputError");
-
-	} else {
-
-		if (isNaN(quantity) || (quantity <= 0)) {
-			$('#customerInvoiceProductQuantityInput').addClass("inputError");
-		}
-
-		if (isNaN(price) || (price < 0)) {
-			$('#customerInvoiceProductPriceInput').addClass("inputError");
-		}
-
-		if (product == 'Please Select') {
-			$('#customerInvoiceProductsSelection').addClass("inputError");
-		}
+					$('#customerInvoiceProductQuantityInput, #customerInvoiceProductPriceInput, #customerInvoiceProductsSelection').removeClass("inputError");
+					addValuesToObjectAndAddRowCustomer(productID, product, quantity, price, orderNumberCustomer);
+					$('#customerInvoiceProductQuantityInput, #customerInvoiceProductPriceInput').val('');
+					$('#customerInvoiceProductsSelection').val('0');
+			
+					//	adjust total price
+					let currentTotal 	= parseFloat($('#customerInvoicePriceTotal').val());
+					let currentTotalInt = currentTotal ?  currentTotal : 0;
+					let newTotal 		= Math.round( 100 * (currentTotalInt + (quantity * price)) ) / 100;
+			
+					$('#customerInvoicePriceTotal').val(newTotal);
+					$('#customerInvoiceProductsSelection').removeClass("inputError");
+					$('#addProductCustomer').removeClass("inputError");
+			
+				} else {
+			
+					if (isNaN(quantity) || (quantity <= 0)) {
+						$('#customerInvoiceProductQuantityInput').addClass("inputError");
+					}
+			
+					if (isNaN(price) || (price < 0)) {
+						$('#customerInvoiceProductPriceInput').addClass("inputError");
+					}
+			
+					if (product == 'Please Select') {
+						$('#customerInvoiceProductsSelection').addClass("inputError");
+					}
+				}
+			}
+			
+		});
 	}
+	
+	
+	
 });
 
 //	ajax get correct prices on customer select
@@ -338,7 +371,8 @@ $('#customerInvoiceCustomerSelect').on('change', function() {
 
 //	customer invoice submit
 $('#form_requisition_to_customer').on('submit', function(e) {
-
+	$('#customerInvoiceProductsinverntories').prop('disabled', false);
+	
 	e.preventDefault();
 
 	clearPHPMsg();
@@ -349,6 +383,7 @@ $('#form_requisition_to_customer').on('submit', function(e) {
 	objForPHP.customerID 			= $('#customerInvoiceCustomerSelect :selected').val();
 	objForPHP.total 				= $('#customerInvoicePriceTotal').val();
 	objForPHP.date 					= $('#customerInvoiceDateInput').val();
+	objForPHP.note 					= $('#customerInvoiceNoteInput').val();
 	objForPHP.note 					= $('#customerInvoiceNoteInput').val();
 	objForPHP.inventory 					= $('#customerInvoiceProductsinverntories').val();
 	objForPHP.products				= listOfProductsCustomer;
@@ -364,7 +399,7 @@ $('#form_requisition_to_customer').on('submit', function(e) {
 		listOfProductsCustomer = {};
 
 		$('#form_requisition_to_customer .for_fill_out_with_products').html('');
-
+		$('#customerInvoiceProductsinverntories').val('');
 		$('#customerInvoiceDateInput').val('');
 		$('#customerInvoiceNoteInput').val('');
 		$('#customerInvoiceCustomerSelect').val('');

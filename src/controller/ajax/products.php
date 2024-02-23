@@ -684,6 +684,8 @@ if (isset($_POST['getProductsAndCorrectPrices'])) {
 				stock
 			ON
 				stock.product_id = products.id
+			WHERE
+			    products.active = 1
 			";
 
 		$supplierProducts = $db->getRows($sql);

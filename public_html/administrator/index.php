@@ -517,6 +517,16 @@ require_once SRC . 'controller/administrator-panel.php';
 										<?= $customersHTML ?? '' ?>
 									</select>
 								</div>
+								<div class="propAllSmallFormInOut disFlex">
+									<h4>Inventories</h4>
+									<select id="customerInvoiceProductsinverntories" class="propAllOutputsForm" required>
+										<option value="">Please Select</option>
+										<option value="calgary">Calgary</option>
+										<option value="edmonton">Edmonton</option>
+										<option value="toronto">Toronto</option>
+										<option value="kelowna">Kelowna</option>
+									</select>
+								</div>
 								<div class="for_fill_out_with_products">
 								</div>
 								<div id="form_1_subb_2" class="propAllSubbOrFor">
@@ -535,6 +545,7 @@ require_once SRC . 'controller/administrator-panel.php';
 										<input id="customerInvoiceProductPriceInput" type="number" placeholder="Price" class="propAllOutputsForm">
 									</div>
 									<div id="addProductCustomer" class="propAddMore">Add</div>
+									<div id="qtyerror"></div>
 								</div>
 								<div class="invoiceNoteWrapper">
 									<h4> Note </h4>
