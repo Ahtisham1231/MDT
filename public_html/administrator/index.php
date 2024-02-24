@@ -55,21 +55,32 @@ require_once SRC . 'controller/administrator-panel.php';
 					    <h3>Email Address: <span id="supp_em_add_supplier"></span></h3>
 					</div>
 				</div> -->
-				<div class="supp_inv_row_main" id="supp_inv_row_main" style="display: none;">
-					<div class="supp_inv_productNumber" style="margin-left: 164px;">
-						<p>ID</p>
-					</div>
-					<div class="supp_inv_productName">
-						<p>Name</p>
-					</div>
-					<div class="supp_inv_productQuantity">
-						<p>Quantity</p>
-					</div>
-					<div class="supp_inv_productPrice">
-						<p>Price</p>
-					</div>
-					<div class="supp_inv_productSum">
-						<p>total</p>
+				<div style="    width: 900px;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;">
+					<div class="container">
+						<div class="row">
+							<div class="supp_inv_row_main " id="supp_inv_row_main" style="display: none;">
+								<div class="col-2 supp_inv_productNumber ml-2">
+									<p>ID</p>
+								</div>
+								<div class="col-2 supp_inv_productName">
+									<p>Name</p>
+								</div>
+								<div class="col-2 supp_inv_productQuantity">
+									<p>Quantity</p>
+								</div>
+								<div class="col-2 supp_inv_productPrice">
+									<p>Price</p>
+								</div>
+								<div class="col-2 supp_inv_productSum">
+									<p>total</p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div id="supp_inv_table">

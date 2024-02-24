@@ -958,24 +958,49 @@ $('#supplierInvoicesTable, #supplierBalanceTable').on("click", ".details_buttons
 			// alert('yes');
 			
 			$.each(response, function(index, value){
+				// html +=
+				// 	`<div class="supp_inv_row">
+				// 		<div class="supp_inv_productNumber">
+				// 			<p>${index + 1}</p>
+				// 		</div>
+				// 		<div class="supp_inv_productName">
+				// 			<p>${value.name}</p>
+				// 		</div>
+				// 		<div class="supp_inv_productQuantity">
+				// 			<p>${value.quantity}</p>
+				// 		</div>
+				// 		<div class="supp_inv_productPrice">
+				// 			<p>$${value.price}</p>
+				// 		</div>
+				// 		<div class="supp_inv_productSum">
+				// 			<p>$${value.total}</p>
+				// 		</div>
+				// 	</div>`;
 				html +=
-					`<div class="supp_inv_row">
-						<div class="supp_inv_productNumber">
+					`
+					<div class="container">
+						<div class="row">
+					<div class="supp_inv_row" class="bckgWhite bckgGray">
+						<div class="col-2 supp_inv_productNumber">
 							<p>${index + 1}</p>
 						</div>
-						<div class="supp_inv_productName">
+						<div class="col-2 supp_inv_productName">
 							<p>${value.name}</p>
 						</div>
-						<div class="supp_inv_productQuantity">
+						<div class="col-2 supp_inv_productQuantity">
 							<p>${value.quantity}</p>
 						</div>
-						<div class="supp_inv_productPrice">
+						<div class="col-2 supp_inv_productPrice">
 							<p>$${value.price}</p>
 						</div>
-						<div class="supp_inv_productSum">
+						<div class="col-2 supp_inv_productSum">
 							<p>$${value.total}</p>
 						</div>
-					</div>`;
+					</div>
+					</div>
+				</div>
+					`
+				;
 			});
 			
 
@@ -1652,23 +1677,29 @@ $('#customerInvoicesTable, #customerBalanceTable').on("click", ".buyer_invoice_d
 
 			$.each(response, function(index, value) {
 				html +=
-					`<div class="supp_inv_row" class="bckgWhite bckgGray">
-						<div class="supp_inv_productNumber">
+					`
+					<div class="container">
+						<div class="row">
+					<div class="supp_inv_row" class="bckgWhite bckgGray">
+						<div class="col-2 supp_inv_productNumber">
 							<p>${index + 1}</p>
 						</div>
-						<div class="supp_inv_productName">
+						<div class="col-2 supp_inv_productName">
 							<p>${value.name}</p>
 						</div>
-						<div class="supp_inv_productQuantity">
+						<div class="col-2 supp_inv_productQuantity">
 							<p>${value.quantity}</p>
 						</div>
-						<div class="supp_inv_productPrice">
+						<div class="col-2 supp_inv_productPrice">
 							<p>$${value.price}</p>
 						</div>
-						<div class="supp_inv_productSum">
+						<div class="col-2 supp_inv_productSum">
 							<p>$${value.total}</p>
 						</div>
-					</div>`
+					</div>
+					</div>
+				</div>
+					`
 				;
 			});
 
