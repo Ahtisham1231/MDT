@@ -1730,3 +1730,58 @@ Stack trace:
 #2 /var/www/html/MDT/public_html/php/ajax.php(6): require_once('...')
 #3 {main}
   thrown in /var/www/html/MDT/src/classes/Database.php on line 58
+[25-Feb-2024 19:19:26 UTC] PHP Warning:  Undefined array key "amount" in /var/www/html/MDT/src/controller/ajax/customers.php on line 844
+[25-Feb-2024 19:19:26 UTC] PHP Warning:  Undefined variable $user_id in /var/www/html/MDT/src/controller/ajax/customers.php on line 850
+[25-Feb-2024 19:22:20 UTC] PHP Warning:  Undefined array key "amount" in /var/www/html/MDT/src/controller/ajax/customers.php on line 844
+[25-Feb-2024 19:22:20 UTC] PHP Warning:  Undefined variable $user_id in /var/www/html/MDT/src/controller/ajax/customers.php on line 850
+[25-Feb-2024 19:23:18 UTC] PHP Warning:  Undefined array key "amount" in /var/www/html/MDT/src/controller/ajax/customers.php on line 844
+[25-Feb-2024 19:23:18 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'balance' cannot be null in /var/www/html/MDT/src/classes/Database.php:35
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(35): PDOStatement->execute()
+#1 /var/www/html/MDT/src/controller/ajax/customers.php(849): Database->updateRow()
+#2 /var/www/html/MDT/public_html/php/ajax.php(5): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 35
+[25-Feb-2024 19:23:37 UTC] PHP Warning:  Undefined array key "amount" in /var/www/html/MDT/src/controller/ajax/customers.php on line 844
+[25-Feb-2024 19:34:02 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[22007]: Invalid datetime format: 1292 Truncated incorrect INTEGER value: 'testing' in /var/www/html/MDT/src/classes/Database.php:35
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(35): PDOStatement->execute()
+#1 /var/www/html/MDT/src/controller/ajax/customers.php(833): Database->updateRow()
+#2 /var/www/html/MDT/public_html/php/ajax.php(5): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 35
+[25-Feb-2024 20:19:47 UTC] PHP Warning:  Undefined array key "inventory" in /var/www/html/MDT/src/controller/ajax/customers.php on line 803
+[25-Feb-2024 20:24:08 UTC] PHP Warning:  Undefined array key "inventory" in /var/www/html/MDT/src/controller/ajax/customers.php on line 803
+[25-Feb-2024 20:24:41 UTC] PHP Warning:  Undefined array key "inventory" in /var/www/html/MDT/src/controller/ajax/customers.php on line 803
+[25-Feb-2024 20:24:41 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /var/www/html/MDT/src/controller/ajax/customers.php:816
+Stack trace:
+#0 /var/www/html/MDT/public_html/php/ajax.php(5): require_once()
+#1 {main}
+  thrown in /var/www/html/MDT/src/controller/ajax/customers.php on line 816
+[25-Feb-2024 20:25:22 UTC] PHP Warning:  Undefined array key "inventory" in /var/www/html/MDT/src/controller/ajax/customers.php on line 805
+[25-Feb-2024 20:25:22 UTC] PHP Deprecated:  PDOStatement::fetchAll(): Passing null to parameter #1 ($mode) of type int is deprecated in /var/www/html/MDT/src/classes/Database.php on line 60
+[25-Feb-2024 20:25:22 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /var/www/html/MDT/src/controller/ajax/customers.php:818
+Stack trace:
+#0 /var/www/html/MDT/public_html/php/ajax.php(5): require_once()
+#1 {main}
+  thrown in /var/www/html/MDT/src/controller/ajax/customers.php on line 818
+[25-Feb-2024 20:26:02 UTC] PHP Deprecated:  PDOStatement::fetchAll(): Passing null to parameter #1 ($mode) of type int is deprecated in /var/www/html/MDT/src/classes/Database.php on line 60
+[25-Feb-2024 20:26:02 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /var/www/html/MDT/src/controller/ajax/customers.php:818
+Stack trace:
+#0 /var/www/html/MDT/public_html/php/ajax.php(5): require_once()
+#1 {main}
+  thrown in /var/www/html/MDT/src/controller/ajax/customers.php on line 818
+[25-Feb-2024 20:26:21 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /var/www/html/MDT/src/controller/ajax/customers.php:816
+Stack trace:
+#0 /var/www/html/MDT/public_html/php/ajax.php(5): require_once()
+#1 {main}
+  thrown in /var/www/html/MDT/src/controller/ajax/customers.php on line 816
+[25-Feb-2024 20:28:04 UTC] PHP Deprecated:  PDOStatement::fetchAll(): Passing null to parameter #1 ($mode) of type int is deprecated in /var/www/html/MDT/src/classes/Database.php on line 60
+[25-Feb-2024 20:28:04 UTC] PHP Warning:  Undefined variable $insertInvoiceProducts in /var/www/html/MDT/src/controller/ajax/customers.php on line 823
+[25-Feb-2024 20:28:04 UTC] PHP Fatal error:  Uncaught Error: Call to a member function execute() on null in /var/www/html/MDT/src/controller/ajax/customers.php:823
+Stack trace:
+#0 /var/www/html/MDT/public_html/php/ajax.php(5): require_once()
+#1 {main}
+  thrown in /var/www/html/MDT/src/controller/ajax/customers.php on line 823
+[25-Feb-2024 20:28:28 UTC] PHP Deprecated:  PDOStatement::fetchAll(): Passing null to parameter #1 ($mode) of type int is deprecated in /var/www/html/MDT/src/classes/Database.php on line 60
+[25-Feb-2024 20:28:28 UTC] PHP Deprecated:  PDOStatement::fetch(): Passing null to parameter #1 ($mode) of type int is deprecated in /var/www/html/MDT/src/classes/Database.php on line 54

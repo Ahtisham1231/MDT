@@ -330,7 +330,7 @@ if (isset($_POST['getCustomerPayments'])) {
 			$formattedAmount,
 			$showDate,
 			$statusName,
-			'<button ' . $disabledComplete . ' class="edit_payment_status" data-user-id="' . $row->customerID . '"  data-id="' . $row->id . '">Complete</button>',
+			'<button ' . $disabledComplete . ' class="edit_payment_status"  data-amount="' . $row->amount . '" data-user-id="' . $row->customerID . '"  data-id="' . $row->id . '" >Complete</button>',
 			'<button' . $disabledComplete . '  class="edit_payment_buttons" data-customer-id="' . $row->customerID . '" data-payment-id="' . $row->id . '" data-amount="' . $row->amount . '" data-date="' . $dateForFrontEnd . '">Edit</button>',
 			'<button ' . $disabledComplete . '  class="delete_payment_buttons" data-customer-id="' . $row->customerID . '" data-payment-id="' . $row->id . '" data-amount="' . $row->amount . '">Delete</button>',
 		];
@@ -796,17 +796,136 @@ if (isset($_POST['checkInventoryQuantity'])) {
 	}
 }
 if (isset($_POST["supplierInvoiceComplete"])) {
-
 	$id 		= $_POST['id'];
 	$total		= $_POST['total'];
 	$userID		= $_POST['userID'];
+	$inventory	= $_POST['inventory'];
 
 	$db->beginTransaction();
 
 	//	invoice status
 	$sql 				= "UPDATE invoices SET status_id = 3 WHERE id = :id";
 	$update 			= $db->updateRow($sql, ['id' => $id]);
+	// Retrieve products and quantities from the invoice
+	$sql        = "SELECT * FROM invoice_products WHERE invoice_id = :id";
+	$products   = $db->getRows($sql, ['id' => $id]);
 
+	foreach ($products as $product) {
+
+		$product_id = $product->product_id;
+		$quantity 	= $product->quantity;
+		$price 		= $product->price;
+		$total  	= $quantity * $price;
+
+
+
+		//	get current stock info
+		$getSQL = "
+			SELECT
+				quantity,
+				supplier_price,
+				quantity * supplier_price AS total
+			FROM
+				stock
+			WHERE
+				product_id = :product_id
+			";
+
+		$productInfo = $db->getRow($getSQL, ['product_id' => $product_id]);
+
+		$oldPrice 	 = $productInfo->supplier_price;
+		$oldQuantity = $productInfo->quantity;
+		$oldTotal	 = $productInfo->total;
+
+		$newQuantity = $oldQuantity + $quantity;
+		$newTotal 	 = $oldTotal + $total;
+
+		if ($oldPrice == $price) {
+			$supplier_price = $price;
+		} else {
+			$supplier_price = $newTotal / $newQuantity;
+		}
+
+		//	update stock
+		$updateStockSQL = "
+			UPDATE
+				stock
+			SET
+				quantity 		= quantity + :quantity,
+				supplier_price 	= :supplier_price
+			WHERE
+				product_id 		= :product_id
+			";
+
+		$updateStock = $db->updateRow($updateStockSQL, [
+			'product_id' 		=> $product_id,
+			'quantity' 			=> $quantity,
+			'supplier_price' 	=> $supplier_price,
+		]);
+
+
+		//	update clagary inventory
+		if (isset($inventory) && $inventory == 'calgary') {
+			$updateCalgarySQL = "
+			UPDATE
+				 calgary
+			SET
+				quantity 		= quantity + :quantity
+			WHERE
+				product_id 		= :product_id
+			";
+
+			$updateCalgary = $db->updateRow($updateCalgarySQL, [
+				'product_id' 		=> $product_id,
+				'quantity' 			=> $quantity,
+			]);
+		}
+		if (isset($inventory)  && $inventory == 'edmonton') {
+			$updateEdmontonSQL = "
+			UPDATE
+				 edmonton
+			SET
+				quantity 		= quantity + :quantity
+			WHERE
+				product_id 		= :product_id
+			";
+
+			$updateEdmonton = $db->updateRow($updateEdmontonSQL, [
+				'product_id' 		=> $product_id,
+				'quantity' 			=> $quantity,
+			]);
+		}
+		if (isset($inventory)  && $inventory == 'toronto') {
+			$updateTorontoSQL = "
+			UPDATE
+				toronto
+			SET
+				quantity 		= quantity + :quantity
+			WHERE
+				product_id 		= :product_id
+			";
+
+			$updateToronto = $db->updateRow($updateTorontoSQL, [
+				'product_id' 		=> $product_id,
+				'quantity' 			=> $quantity,
+			]);
+		}
+		if (isset($inventory)   && $inventory == 'kelowna') {
+			$updateKelownaSQL = "
+			UPDATE
+				kelowna
+			SET
+				quantity 		= quantity + :quantity
+			WHERE
+				product_id 		= :product_id
+			";
+
+			$updateKelowna = $db->updateRow($updateKelownaSQL, [
+				'product_id' 		=> $product_id,
+				'quantity' 			=> $quantity,
+			]);
+		}
+	}
 
 	if (!($update)) {
 		$db->rollBack();
@@ -818,9 +937,9 @@ if (isset($_POST["supplierInvoiceComplete"])) {
 }
 if (isset($_POST["supplierPaymentComplete"])) {
 
-	$id 		= $_POST['id'];
-	// $total		= $_POST['total'];
-	$userID		= $_POST['userID'];
+	$id 		 = $_POST['id'];
+	$amount		 = $_POST['amount'];
+	$supplier_id = $_POST['userID'];
 
 	$db->beginTransaction();
 
@@ -828,6 +947,12 @@ if (isset($_POST["supplierPaymentComplete"])) {
 	$sql 				= "UPDATE payments SET status = 3 WHERE id = :id";
 	$update 			= $db->updateRow($sql, ['id' => $id]);
 
+	$sql = "UPDATE suppliers SET balance = balance - :amount WHERE id = :id";
+
+	$update = $db->updateRow($sql, [
+		'amount' 	=> $amount,
+		'id' 		=> $supplier_id,
+	]);
 
 	if (!($update)) {
 		$db->rollBack();
@@ -841,9 +966,14 @@ if (isset($_POST["supplierPaymentComplete"])) {
 if (isset($_POST["customerPaymentComplete"])) {
 
 	$id 		= $_POST['id'];
-	// $total		= $_POST['total'];
+	$amount		= $_POST['amount'];
 	$userID		= $_POST['userID'];
+	$sql = "UPDATE users SET balance = balance - :amount WHERE id = :id";
 
+	$update = $db->updateRow($sql, [
+		'amount' 	=> $amount,
+		'id' 		=> $userID,
+	]);
 	$db->beginTransaction();
 
 	//	invoice status
@@ -1070,14 +1200,9 @@ if (isset($_POST['customerPayment'])) {
 		'date' 			=> $date,
 	]);
 
-	$sql = "UPDATE users SET balance = balance - :amount WHERE id = :id";
 
-	$update = $db->updateRow($sql, [
-		'amount' 	=> $amount,
-		'id' 		=> $user_id,
-	]);
 
-	if ($insert && $update) {
+	if ($insert) {
 
 		$db->commit();
 

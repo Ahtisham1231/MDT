@@ -1016,11 +1016,13 @@ $('#supplierInvoicesTable').on("click", ".buyer_invoice_status", function() {
 	let id 		= $(this).data('id');
 	let total 	= $(this).data('total');
 	let userID 	= $(this).data('user-id');
+	let inventory 	= $(this).data('inventory');
 
 	let objForPHP = {
 		"id" 					: id,
 		"total" 				: total,
 		"userID" 				: userID,
+		"inventory" 			: inventory,
 		"supplierInvoiceComplete" 	: true
 	};
 
@@ -1037,12 +1039,12 @@ $('#supplierInvoicesTable').on("click", ".buyer_invoice_status", function() {
 
 $('#supplierPaymentsTable').on("click", ".edit_payment_status", function() {
 	let id 		= $(this).data('id');
-	let total 	= $(this).data('total');
+	let amount 	= $(this).data('amount');
 	let userID 	= $(this).data('user-id');
 
 	let objForPHP = {
 		"id" 					: id,
-		"total" 				: total,
+		"amount" 				: amount,
 		"userID" 				: userID,
 		"supplierPaymentComplete" 	: true
 	};
@@ -1062,11 +1064,13 @@ $('#customerPaymentsTable').on("click", ".edit_payment_status", function() {
 	let id 		= $(this).data('id');
 	let total 	= $(this).data('total');
 	let userID 	= $(this).data('user-id');
+	let amount 	= $(this).data('amount');
 
 	let objForPHP = {
 		"id" 					: id,
 		"total" 				: total,
 		"userID" 				: userID,
+		"amount" 				: amount,
 		"customerPaymentComplete" 	: true
 	};
 
