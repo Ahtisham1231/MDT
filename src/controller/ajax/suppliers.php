@@ -235,12 +235,7 @@ if (isset($_POST['supplierInvoiceSubmit'])) {
 		// }
 	}
 
-	//	adjust supplier balance
-	$sql = "UPDATE suppliers SET balance = balance + :amount WHERE id = :id";
-	$updateSupplierBalance = $db->updateRow($sql, [
-		'amount' 	=> $amount,
-		'id' 		=> $supplier_id,
-	]);
+	
 
 	$db->commit();
 
@@ -338,8 +333,8 @@ if (isset($_POST['getSupplierInvoices'])) {
 			$row->status,
 			$showDate,
 			'<button class="details_buttons" data-date="' . $showDate . '" data-total="' . $row->total . '" data-user="' . $row->supplier . '" data-id="' . $row->id . '">Details</button>',
-			'<button ' . $disabledComplete . ' class="buyer_invoice_status" data-user-id="' . $row->user_id . '" data-inventory="' . $row->inventory . '" data-total="' . $row->total . '" data-id="' . $row->id . '">Complete</button>',
-			'<button class="edit_supplier_invoice"' . $disabled . ' data-date="' . $row->date . '" data-total="' . $row->total . '" data-supplier="' . $row->supplierID . '" data-id="' . $row->id . '">Edit</button>',
+			'<button ' . $disabledComplete . ' class="buyer_invoice_status" data-supplier="' . $row->supplierID . '" data-user-id="' . $row->user_id . '" data-inventory="' . $row->inventory . '" data-total="' . $row->total . '" data-id="' . $row->id . '">Complete</button>',
+			'<button class="edit_supplier_invoice"   data-date="' . $row->date . '" data-total="' . $row->total . '" data-supplier="' . $row->supplierID . '" data-id="' . $row->id . '">Edit</button>',
 			'<button class="delete_supplier_invoice" data-supplier="' . $row->supplierID . '" data-id="' . $row->id . '">Delete</button>',
 		];
 		$i++;

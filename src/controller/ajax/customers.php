@@ -237,8 +237,8 @@ if (isset($_POST['getCustomerInvoices'])) {
 			$showDate,
 			'<button class="buyer_invoice_details" data-date="' . $showDate . '" data-total="' . $row->total . '" data-user="' . $row->user . '" data-id="' . $row->id . '">Details</button>',
 			'<button ' . $disabledComplete . ' class="buyer_invoice_status" data-inventory="' . $row->inventory . '" data-user-id="' . $row->userid . '" data-total="' . $row->total . '" data-id="' . $row->id . '">Complete</button>',
-			'<button ' . $disabledEdit . ' class="edit_customer_invoice" data-inventory="' . $row->inventory . '" data-date="' . $row->date . '" data-total="' . $row->total . '" data-customer="' . $row->userid . '" data-id="' . $row->id . '">Edit</button>',
-			'<button ' . $disabledDelete . ' class="delete_customer_invoice" data-customer="' . $row->userid . '" data-id="' . $row->id . '">Delete</button>',
+			'<button   class="edit_customer_invoice" data-inventory="' . $row->inventory . '" data-date="' . $row->date . '" data-total="' . $row->total . '" data-customer="' . $row->userid . '" data-id="' . $row->id . '">Edit</button>',
+			'<button  class="delete_customer_invoice" data-customer="' . $row->userid . '" data-id="' . $row->id . '">Delete</button>',
 		];
 		$i++;
 	}
@@ -796,10 +796,10 @@ if (isset($_POST['checkInventoryQuantity'])) {
 	}
 }
 if (isset($_POST["supplierInvoiceComplete"])) {
-	$id 		= $_POST['id'];
-	$total		= $_POST['total'];
-	$userID		= $_POST['userID'];
-	$inventory	= $_POST['inventory'];
+	$id 		 = $_POST['id'];
+	$total		 = $_POST['total'];
+	$supplier_id = $_POST['userID'];
+	$inventory	 = $_POST['inventory'];
 
 	$db->beginTransaction();
 
@@ -807,9 +807,18 @@ if (isset($_POST["supplierInvoiceComplete"])) {
 	$sql 				= "UPDATE invoices SET status_id = 3 WHERE id = :id";
 	$update 			= $db->updateRow($sql, ['id' => $id]);
 	// Retrieve products and quantities from the invoice
+	$sql        = "SELECT * FROM invoices WHERE id = :id";
+	$totalAmount   = $db->getRow($sql, ['id' => $id]);
+	$sql = "UPDATE suppliers SET balance = balance + :amount WHERE id = :id";
+	$updateSupplierBalance = $db->updateRow($sql, [
+		'amount' 	=> $totalAmount->amount,
+		'id' 		=> $supplier_id,
+	]);
+	// print_r($totalAmount);die;
 	$sql        = "SELECT * FROM invoice_products WHERE invoice_id = :id";
 	$products   = $db->getRows($sql, ['id' => $id]);
-
+	//	adjust supplier balance
+	
 	foreach ($products as $product) {
 
 		$product_id = $product->product_id;

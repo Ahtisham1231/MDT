@@ -1015,7 +1015,7 @@ $('#supplierInvoicesTable').on("click", ".buyer_invoice_status", function() {
 
 	let id 		= $(this).data('id');
 	let total 	= $(this).data('total');
-	let userID 	= $(this).data('user-id');
+	let userID 	= $(this).data('supplier');
 	let inventory 	= $(this).data('inventory');
 
 	let objForPHP = {
