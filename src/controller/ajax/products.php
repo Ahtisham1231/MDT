@@ -96,6 +96,7 @@ if (isset($_POST['updateProduct'])) {
 }
 
 if (isset($_POST['buildProductPricesForCustomersTable'])) {
+	$active = isset($_POST['active']) ? intval($_POST['active']) : 1; // Default to active products if not provided
 
 	$html = "";
 	$html = "<table id=\"productPricesTable\">";
@@ -135,7 +136,7 @@ if (isset($_POST['buildProductPricesForCustomersTable'])) {
 		";
 
 	$customers = $db->getRows($sqlUsers);
-	$products = $db->getRows("SELECT id, name FROM products");
+	$products = $db->getRows("SELECT id, name FROM products where active = $active;");
 
 	$json 				= [];
 	$json['customers'] 	= $customers;

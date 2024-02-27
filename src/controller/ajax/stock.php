@@ -599,6 +599,7 @@ if (isset($_POST['getProductsForTransferInfo'])) {
 			name
 		FROM
 			products
+		Where active = 1;	
 		";
 
 	$products = $db->getRows($sql);

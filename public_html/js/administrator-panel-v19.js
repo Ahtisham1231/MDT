@@ -437,9 +437,33 @@ function toggleCheckbox(event) {
 
     // Retrieve data attributes
     var invenName = this.getAttribute('data-invenName');
-	console.log(invenName);
-	// alert('yes');
+	
+
     var checkboxValue = this.querySelector('input[type="checkbox"]').value;
+
+		
+		if(invenName == 'CustomerPrice'){
+			var updatecheckbox = 1; 
+			if(checkboxValue == 1){
+				updatecheckbox = 0;
+			}
+			$('#toggleSwitchCustomerPrice').val(updatecheckbox);
+			let status = updatecheckbox;
+			alert(status);
+			$('#calgaryTable').dataTable().fnDestroy(); 
+			
+			$('#productPricesTableWrapper').html('');
+	
+		let post = $.post('../php/ajax.php', {"buildProductPricesForCustomersTable" : true,"active" : status}, null, 'json');
+	
+		$('#productPricesTableWrapper').hide();
+	
+		post.done(function(response) {
+			$('#productPricesTableWrapper').html(response);
+			initProductPricesForCustomersTable();
+			$('#productPricesTableWrapper').show();
+		});
+		}
 	if(invenName == 'calgary'){
 		var updatecheckbox = 1; 
 		if(checkboxValue == 1){

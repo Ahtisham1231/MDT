@@ -677,7 +677,12 @@ require_once SRC . 'controller/administrator-panel.php';
 			</div>
 
 			<div id="productTableWrapper" class="adminBoards">
-				<h3>Set Customer Prices</h3>
+				<h3>Set Customer Prices 
+				<label class="switch toggleSwitch" data-invenName="CustomerPrice">
+						<input type="checkbox" checked id="toggleSwitchCustomerPrice" name="toggleSwitchCustomerPrice" value="1">
+						<span class="slider round"></span>
+					</label>
+				</h3>
 				<div id="productPricesTableWrapper"></div>
 				<br>
 				<div id="productPricesMsg" class="phpMsg"></div>
