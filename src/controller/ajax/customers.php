@@ -315,11 +315,11 @@ if (isset($_POST['getCustomerPayments'])) {
 		$disabledComplete 	= $row->status == 3 ? ' disabled' : '';
 
 		if ($row->status == 1) {
-			$statusName = 'processing';
+			$statusName = 'Processing';
 		} elseif ($row->status == 2) {
-			$statusName = 'pending';
+			$statusName = 'Pending';
 		} else {
-			$statusName = 'complete';
+			$statusName = 'Complete';
 		}
 		if ($disabledComplete != '') {
 			$disabled = ' disabled';

@@ -40,7 +40,7 @@ if (!ENV_KEY) {
 	define('DBHOST', '127.0.0.1');
 	define('DBNAME', 'mdt');
 	define('DBUSERNAME', 'root');
-	define('DBPASS', 'Npassword!123');
+	define('DBPASS', '');
 } else {
 	// SERVER
 	define('DBHOST', '127.0.0.1');
