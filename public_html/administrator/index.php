@@ -635,19 +635,19 @@ require_once SRC . 'controller/administrator-panel.php';
 							<input id="new_product_name" type="text" class="margLeft" value=""><span class="redStar">*</span>
 						</div>
 						<div class="disFlex addNewSuppClass">
-							<label for="new_product_name">Calgary quantity</label>
+							<label for="new_product_name">Calgary Quantity</label>
 							<input id="new_product_calgary_quantity" class="margLeft marRight" type="number" value="0" step="0.01">
 						</div>
 						<div class="disFlex addNewSuppClass">
-							<label for="new_product_name">Edmonton quantity</label>
+							<label for="new_product_name">Edmonton Quantity</label>
 							<input id="new_product_calgary_edmonton" class="margLeft marRight" type="number" value="0" step="0.01">
 						</div>
 						<div class="disFlex addNewSuppClass">
-							<label for="new_product_name">Toronto quantity</label>
+							<label for="new_product_name">Toronto Quantity</label>
 							<input id="new_product_calgary_toronto" class="margLeft marRight" type="number" value="0" step="0.01">
 						</div>
 						<div class="disFlex addNewSuppClass">
-							<label for="new_product_name">Kelowna quantity</label>
+							<label for="new_product_name">Kelowna Quantity</label>
 							<input id="new_product_calgary_kelowna" class="margLeft marRight" type="number" value="0" step="0.01">
 						</div>
 						<div class="disFlex addNewSuppClass">

@@ -449,7 +449,6 @@ function toggleCheckbox(event) {
 			}
 			$('#toggleSwitchCustomerPrice').val(updatecheckbox);
 			let status = updatecheckbox;
-			alert(status);
 			$('#calgaryTable').dataTable().fnDestroy(); 
 			
 			$('#productPricesTableWrapper').html('');

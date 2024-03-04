@@ -196,8 +196,9 @@ require_once CONT . 'documents.php';
 								</div>
 								<div id="labelsContainerCustomer" class="labelRow disFlex" style="display: none;">
 									<div class="label" style="margin-left: 68px;">Name</div>
-									<div class="label margLeft" style="margin-left: 90px;">Quantity</div>
-									<div class="label margLeft" style="margin-right: 40px;">Price</div>
+									<div class="label margLeft" style="margin-left: 95px;">Qty</div>
+									<div class="label margLeft" style="margin-left: 70px;">Price</div>
+									<div class="label margLeft" style="margin-left: 60px;margin-right: 5px">Total</div>
 								</div>
 								<div class="for_fill_out_with_products">
 									<!--<div class="propAbsForErase">x</div>
@@ -205,11 +206,7 @@ require_once CONT . 'documents.php';
 									<div id="kg_of_prod" class="margLeft propListOrder1"><span>50.500kg</span></div>
 									<div id="price_of_prod" class="margLeft propListOrder1"><span>100.000$</span></div>-->
 								</div>
-								<div id="form_1_subb_2" class="propAllSubbOrFor">
-									<div class="propAllSmallFormInOut disFlex">
-										<h4>Quantity</h4>
-										<input id="customerInvoiceProductQuantityInput" type="number" placeholder="Quantity" class="propAllOutputsForm" step="0.01">
-									</div>
+								<div id="form_1_subb_2" class="propAllSubbOrFor">									
 									<div class="propAllSmallFormInOut disFlex">
 										<h4>Product</h4>
 										<select id="customerInvoiceProductsSelection" class="propAllOutputsForm">
@@ -217,7 +214,11 @@ require_once CONT . 'documents.php';
 										</select>
 									</div>
 									<div class="propAllSmallFormInOut disFlex">
-										<h4>Price</h4>
+										<h4>Quantity</h4>
+										<input id="customerInvoiceProductQuantityInput" type="number" placeholder="Quantity" class="propAllOutputsForm" step="0.01">
+									</div>
+									<div class="propAllSmallFormInOut disFlex">
+										<h4>Price $</h4>
 										<input id="customerInvoiceProductPriceInput" type="number" placeholder="Price" class="propAllOutputsForm">
 									</div>
 									<div id="addProductCustomer" class="propAddMore">Add</div>
@@ -231,7 +232,7 @@ require_once CONT . 'documents.php';
 								</div>
 								<div id="total_price_weight_main">
 									<div class="propAllSmallFormInOut disFlex">
-										<h3>Total</h3>
+										<h3>Total $</h3>
 										<input disabled id="customerInvoicePriceTotal" step="0.01" type="number" placeholder="" class="propAllOutputPrWe">
 									</div>
 									<!--<div class="propAllSmallFormInOut disFlex">
@@ -262,7 +263,7 @@ require_once CONT . 'documents.php';
 								</select>
 							</div>
 							<div class="propAllSmallFormInOut disFlex">
-								<h4>Amount</h4>
+								<h4>Amount $</h4>
 								<input id="customerPaymentAmount" type="number" placeholder="" class="propAllOutputsForm">
 							</div>
 							<input id="submit_for_order_3" class="propInputTypeSubmit" type="submit" value="Submit" name="">

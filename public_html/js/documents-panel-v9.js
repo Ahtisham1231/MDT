@@ -227,7 +227,8 @@ function addValuesToObjectAndAddRowCustomer(productID, product, quantity, price)
 	listOfProductsCustomer[orderNumberCustomer] = {
 		"productID" : productID,
 		"quantity" : quantity,
-		"price" : price
+		"price" : price,
+		"rowTotal" : price * quantity
 	};
 
 	let html = `
@@ -241,6 +242,9 @@ function addValuesToObjectAndAddRowCustomer(productID, product, quantity, price)
 			</div>
 			<div class="price_of_prod_2 margLeft propListOrder1">
 				<span>${price}$</span>
+			</div>
+			<div class="total_of_prod_2 margLeft propListOrder1">
+				<span>${price * quantity}$</span>
 			</div>
 		</div>
 	`;
@@ -299,7 +303,7 @@ $('#addProductCustomer').on('click', function() {
 		let post = $.post('../php/ajax.php', objForPHP, '', 'json');
 		post.done(function(response) {
 			if (response.ok == '0') {
-				alert('yess');
+				
 				$('#customerInvoiceProductsSelection').addClass("inputError");
 				
 					$('#qtyerror').html(response.html);
