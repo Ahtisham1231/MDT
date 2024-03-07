@@ -31,6 +31,8 @@ require_once SRC . 'controller/user-panel.php';
 
 			<div id="popup_supplier_invoice_details">
 				<div id="supp_invoice_wrapper">
+				<button id="closePopupButton" style="width: 104px;">Close Popup</button>
+
 					<div id="supp_inv_main_wrap_head" class="disFlex">
 		                <div id="supp_invo_subb_2" class="margLeft">
 		                	<h3>Invoice Number: <span id="supp_inv_id"></span></h3>
@@ -50,6 +52,34 @@ require_once SRC . 'controller/user-panel.php';
 						    <h3>Email Address: <span id="supp_em_add_supplier"></span></h3>
 						</div>
 					</div> -->
+					<div style="    width: 900px;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;">
+					<div class="container">
+						<div class="row">
+							<div class="supp_inv_row_main " id="supp_inv_row_main" >
+								<div class="col-2 supp_inv_productNumber ml-2">
+									<p>ID</p>
+								</div>
+								<div class="col-2 supp_inv_productName">
+									<p>Name</p>
+								</div>
+								<div class="col-2 supp_inv_productQuantity">
+									<p>Quantity</p>
+								</div>
+								<div class="col-2 supp_inv_productPrice">
+									<p>Price</p>
+								</div>
+								<div class="col-2 supp_inv_productSum">
+									<p>total</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 					<div id="supp_inv_table"></div>
 					<h3 id="am_h3">Total Amount: <span id="supp_inv_total"></span></h3>
 					<div class="invoiceNoteWrapper">
@@ -96,7 +126,16 @@ require_once SRC . 'controller/user-panel.php';
 					<div id="form_2_main_wrapp" class="propAllMainFormWrapp">
 						<div id="form_2_subb_1">
 							<h3>Order Form</h3>
-
+							<div class="propAllSmallFormInOut disFlex">
+									<h4>Inventories</h4>
+									<select id="customerInvoiceProductsinverntoriesN" class="propAllOutputsForm">
+										<option value="">Please Select</option>
+										<option value="calgary">Calgary</option>
+										<option value="edmonton">Edmonton</option>
+										<option value="toronto">Toronto</option>
+										<option value="kelowna">Kelowna</option>
+									</select>
+								</div>
 							<div class="for_fill_out_with_products"></div>
 
 							<div id="form_1_subb_2_2" class="propAllSubbOrFor">

@@ -667,6 +667,7 @@ require_once SRC . 'controller/administrator-panel.php';
 								<th>Product</th>
 								<th>Active</th>
 								<th class="no-sort">Update</th>
+								<th class="no-sort">Delete</th>
 							</tr>
 						</thead>
 						<tbody>

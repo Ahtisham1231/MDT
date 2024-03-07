@@ -33,9 +33,9 @@ $sql = "
 		p.active = 1
 	"
 ;
-
+// echo $sql;die;
 $products = $db->getRows($sql, ['id' => $_SESSION['userID']]);
-
+// print_r($products);
 $productsHTML = '';
 $productsHTML .= '<option data-price="0" value="0">Please Select</option>';
 

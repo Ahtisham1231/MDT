@@ -104,7 +104,10 @@ $('#addProduct').on('click', function() {
 
 	//console.log(productID, product, quantity, price);
 });
-
+$('#closePopupButton').on('click', function() {
+    // Hide the popup when the button is clicked
+    $('#popup_supplier_invoice_details').hide();
+});
 //	customer invoice submit
 $('#form_requisition_to_supplier').on('submit', function(e) {
 
@@ -116,7 +119,8 @@ $('#form_requisition_to_supplier').on('submit', function(e) {
 
 	objForPHP.customerInvoiceSubmit = true;
 	objForPHP.total 				= $('#supplierInvoicePriceTotal').val();
-	objForPHP.note	 				= $('#customerInvoiceNoteInput').val();
+	objForPHP.total 				= $('#supplierInvoicePriceTotal').val();
+	objForPHP.inventory 			= $('#customerInvoiceProductsinverntoriesN').val();
 	objForPHP.products				= listOfProducts;
 
 	if ($.isEmptyObject(listOfProducts)) {

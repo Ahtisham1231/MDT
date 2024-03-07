@@ -1811,3 +1811,83 @@ Stack trace:
 [26-Feb-2024 19:47:56 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/MDT/src/controller/ajax/customers.php on line 822
 [26-Feb-2024 19:49:32 UTC] PHP Warning:  Undefined variable $products in /var/www/html/MDT/src/controller/ajax/customers.php on line 822
 [26-Feb-2024 19:49:32 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/MDT/src/controller/ajax/customers.php on line 822
+[05-Mar-2024 18:46:08 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number in /var/www/html/MDT/src/classes/Database.php:59
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(59): PDOStatement->execute()
+#1 /var/www/html/MDT/src/controller/user-panel.php(31): Database->getRows()
+#2 /var/www/html/MDT/public_html/user/index.php(4): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 59
+[05-Mar-2024 18:46:39 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number in /var/www/html/MDT/src/classes/Database.php:59
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(59): PDOStatement->execute()
+#1 /var/www/html/MDT/src/controller/user-panel.php(30): Database->getRows()
+#2 /var/www/html/MDT/public_html/user/index.php(4): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 59
+[05-Mar-2024 18:46:55 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number in /var/www/html/MDT/src/classes/Database.php:59
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(59): PDOStatement->execute()
+#1 /var/www/html/MDT/src/controller/user-panel.php(30): Database->getRows()
+#2 /var/www/html/MDT/public_html/user/index.php(4): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 59
+[05-Mar-2024 18:53:01 UTC] PHP Warning:  Undefined array key "inventory" in /var/www/html/MDT/src/controller/ajax/customers.php on line 423
+[05-Mar-2024 18:53:01 UTC] PHP Warning:  Undefined array key "inventory" in /var/www/html/MDT/src/controller/ajax/customers.php on line 537
+[05-Mar-2024 18:55:25 UTC] PHP Warning:  Undefined array key "inventory" in /var/www/html/MDT/src/controller/ajax/customers.php on line 423
+[05-Mar-2024 18:55:25 UTC] PHP Warning:  Undefined array key "inventory" in /var/www/html/MDT/src/controller/ajax/customers.php on line 537
+[05-Mar-2024 18:56:03 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SET quantity = quantity - ?, quantity_reserved = quantity_reserved - ? WHERE pro' at line 1 in /var/www/html/MDT/src/classes/Database.php:18
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(18): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/customers.php(739): Database->prepare()
+#2 /var/www/html/MDT/public_html/php/ajax.php(5): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 18
+[05-Mar-2024 18:56:06 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SET quantity = quantity - ?, quantity_reserved = quantity_reserved - ? WHERE pro' at line 1 in /var/www/html/MDT/src/classes/Database.php:18
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(18): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/customers.php(739): Database->prepare()
+#2 /var/www/html/MDT/public_html/php/ajax.php(5): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 18
+[05-Mar-2024 18:56:13 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SET quantity = quantity - ?, quantity_reserved = quantity_reserved - ? WHERE pro' at line 1 in /var/www/html/MDT/src/classes/Database.php:18
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(18): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/customers.php(739): Database->prepare()
+#2 /var/www/html/MDT/public_html/php/ajax.php(5): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 18
+[07-Mar-2024 16:14:23 UTC] PHP Warning:  Undefined array key "inventory" in /var/www/html/MDT/src/controller/ajax/customers.php on line 423
+[07-Mar-2024 16:14:23 UTC] PHP Warning:  Undefined array key "inventory" in /var/www/html/MDT/src/controller/ajax/customers.php on line 537
+[07-Mar-2024 16:17:45 UTC] PHP Warning:  Undefined array key "inventory" in /var/www/html/MDT/src/controller/ajax/customers.php on line 423
+[07-Mar-2024 16:17:45 UTC] PHP Warning:  Undefined array key "inventory" in /var/www/html/MDT/src/controller/ajax/customers.php on line 537
+[07-Mar-2024 16:19:01 UTC] PHP Warning:  Undefined array key "note" in /var/www/html/MDT/src/controller/ajax/customers.php on line 422
+[07-Mar-2024 16:19:46 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SET quantity = quantity - ?, quantity_reserved = quantity_reserved - ? WHERE pro' at line 1 in /var/www/html/MDT/src/classes/Database.php:18
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(18): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/customers.php(739): Database->prepare()
+#2 /var/www/html/MDT/public_html/php/ajax.php(5): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 18
+[07-Mar-2024 16:19:47 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SET quantity = quantity - ?, quantity_reserved = quantity_reserved - ? WHERE pro' at line 1 in /var/www/html/MDT/src/classes/Database.php:18
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(18): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/customers.php(739): Database->prepare()
+#2 /var/www/html/MDT/public_html/php/ajax.php(5): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 18
+[07-Mar-2024 16:19:50 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SET quantity = quantity - ?, quantity_reserved = quantity_reserved - ? WHERE pro' at line 1 in /var/www/html/MDT/src/classes/Database.php:18
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(18): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/customers.php(739): Database->prepare()
+#2 /var/www/html/MDT/public_html/php/ajax.php(5): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 18
+[07-Mar-2024 16:19:51 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SET quantity = quantity - ?, quantity_reserved = quantity_reserved - ? WHERE pro' at line 1 in /var/www/html/MDT/src/classes/Database.php:18
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(18): PDO->prepare()
+#1 /var/www/html/MDT/src/controller/ajax/customers.php(739): Database->prepare()
+#2 /var/www/html/MDT/public_html/php/ajax.php(5): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 18
+[07-Mar-2024 16:21:25 UTC] PHP Warning:  Undefined array key "note" in /var/www/html/MDT/src/controller/ajax/customers.php on line 422

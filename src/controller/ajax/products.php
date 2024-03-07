@@ -53,11 +53,13 @@ if (isset($_POST['getProducts'])) {
 		$activeHTML .= '</select>';
 
 		$updateHTML = '<button class="update_product" data-id="' . $row->id . '">Update</button>';
+		$deleteHTML = '<button class="delete_product" data-id="' . $row->id . '">Delete</button>';
 
 		$data[] = [
 			$product,
 			$activeHTML,
 			$updateHTML,
+			$deleteHTML,
 		];
 	}
 
@@ -89,6 +91,27 @@ if (isset($_POST['updateProduct'])) {
 	]);
 
 	if ($update) {
+		die('1');
+	} else {
+		die('0');
+	}
+}
+// delete product
+if (isset($_POST['deleteProduct'])) {
+
+	$id 		= trim($_POST['id']);
+
+	if ($id === '') {
+		die('0');
+	}
+
+	$db->beginTransaction();
+
+	$delete = $db->deleteRow("DELETE FROM products 	WHERE 	id = :id", [
+		'id' 		=> $id,
+	]);
+	$db->commit();
+	if ($delete) {
 		die('1');
 	} else {
 		die('0');

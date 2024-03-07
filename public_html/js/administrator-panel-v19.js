@@ -2737,6 +2737,45 @@ $('#editProductsTable').on('click', '.update_product', function(e) {
 		}
 	});
 });
+// delete product
+$('#editProductsTable').on('click', '.delete_product', function(e) {
+
+	e.preventDefault();
+
+	let element 	= $(this);
+	let id 			= element.data('id');
+
+	let objForPHP 	= {
+		'deleteProduct' 	: true,
+		'id'				: id,
+	};
+
+	//console.log(objForPHP);
+
+	let post = $.post('../php/ajax.php', objForPHP, null, '');
+	post.done(function(response) {
+
+		if (response === '1') {
+			let html = `
+            <div style="width: 250px; background-color: #f2f2f2; padding: 10px; margin: 0 auto;">
+                <i  style="color: green" class="fas fa-check-circle"></i>Delete Prodcut Successfully
+            </div>
+        `;
+        $('#addProductPhpMsg').html(html);
+        $('#addProductPhpMsg').show(400);
+		drawUpdateProductsTable();
+		} else {
+			let html = `
+            <div style="width: 250px; background-color: #f2f2f2; padding: 10px; margin: 0 auto;">
+				<i style="color: red" class="fas fa-exclamation-triangle"></i> Failed to Delete 
+			</div>
+        `;
+        $('#addProductPhpMsg').html(html);
+        $('#addProductPhpMsg').show(400);
+			console.log('Could not update!');
+		}
+	});
+});
 
 $('#productPricesTableWrapper').on('click', '.setPrices', function() {
 
