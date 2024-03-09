@@ -112,6 +112,14 @@ require_once SRC . 'controller/user-panel.php';
 						    </div>
 						</div>
 					</a>
+					<a id="my_payments_link" href="" class="">
+						<div id="form_thumb_subb_3" class="propThumbCl">
+						    <h5>MY Payments</h5>
+						    <div class="thumb_img">
+						    	<!-- <img src="images/m4.jpg"> -->
+						    </div>
+						</div>
+					</a>
 					<a id="update_password_link" href="" class="">
 						<div id="form_thumb_subb_4" class="propThumbCl">
 						    <h5>UPDATE PASSWORD</h5>
@@ -191,6 +199,22 @@ require_once SRC . 'controller/user-panel.php';
 					<div id="myInvoicesTotal"></div>
 					<br>
 					<div id="myBalance"></div>
+
+				</div>
+				<div id="myPaymentsTableWrapper" class="userForms">
+					<table id="myPaymentsTable">
+						<thead>
+							<tr>
+								<th>Order Number</th>
+								<th>Total</th>
+								<th>Date</th>
+								<th>Status</th>								
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+					
 
 				</div>
 

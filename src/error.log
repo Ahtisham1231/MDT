@@ -1891,3 +1891,65 @@ Stack trace:
 #3 {main}
   thrown in /var/www/html/MDT/src/classes/Database.php on line 18
 [07-Mar-2024 16:21:25 UTC] PHP Warning:  Undefined array key "note" in /var/www/html/MDT/src/controller/ajax/customers.php on line 422
+[09-Mar-2024 08:50:34 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number in /var/www/html/MDT/src/classes/Database.php:59
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(59): PDOStatement->execute()
+#1 /var/www/html/MDT/src/controller/ajax/customers.php(737): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(5): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 59
+[09-Mar-2024 08:50:40 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number in /var/www/html/MDT/src/classes/Database.php:59
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(59): PDOStatement->execute()
+#1 /var/www/html/MDT/src/controller/ajax/customers.php(737): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(5): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 59
+[09-Mar-2024 08:51:44 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number in /var/www/html/MDT/src/classes/Database.php:59
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(59): PDOStatement->execute()
+#1 /var/www/html/MDT/src/controller/ajax/customers.php(737): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(5): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 59
+[09-Mar-2024 08:51:58 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number in /var/www/html/MDT/src/classes/Database.php:59
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(59): PDOStatement->execute()
+#1 /var/www/html/MDT/src/controller/ajax/customers.php(738): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(5): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 59
+[09-Mar-2024 08:54:26 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number in /var/www/html/MDT/src/classes/Database.php:59
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(59): PDOStatement->execute()
+#1 /var/www/html/MDT/src/controller/ajax/customers.php(739): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(5): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 59
+[09-Mar-2024 08:55:34 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number in /var/www/html/MDT/src/classes/Database.php:59
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(59): PDOStatement->execute()
+#1 /var/www/html/MDT/src/controller/ajax/customers.php(740): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(5): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 59
+[09-Mar-2024 08:55:58 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number in /var/www/html/MDT/src/classes/Database.php:59
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(59): PDOStatement->execute()
+#1 /var/www/html/MDT/src/controller/ajax/customers.php(739): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(5): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 59
+[09-Mar-2024 08:56:55 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number in /var/www/html/MDT/src/classes/Database.php:59
+Stack trace:
+#0 /var/www/html/MDT/src/classes/Database.php(59): PDOStatement->execute()
+#1 /var/www/html/MDT/src/controller/ajax/customers.php(739): Database->getRows()
+#2 /var/www/html/MDT/public_html/php/ajax.php(5): require_once('...')
+#3 {main}
+  thrown in /var/www/html/MDT/src/classes/Database.php on line 59
+[09-Mar-2024 08:57:53 UTC] PHP Deprecated:  PDOStatement::fetchAll(): Passing null to parameter #1 ($mode) of type int is deprecated in /var/www/html/MDT/src/classes/Database.php on line 60
+[09-Mar-2024 08:57:53 UTC] PHP Warning:  Array to string conversion in /var/www/html/MDT/src/controller/ajax/customers.php on line 741
+[09-Mar-2024 08:58:07 UTC] PHP Deprecated:  PDOStatement::fetchAll(): Passing null to parameter #1 ($mode) of type int is deprecated in /var/www/html/MDT/src/classes/Database.php on line 60
+[09-Mar-2024 08:58:22 UTC] PHP Deprecated:  PDOStatement::fetchAll(): Passing null to parameter #1 ($mode) of type int is deprecated in /var/www/html/MDT/src/classes/Database.php on line 60
+[09-Mar-2024 08:58:29 UTC] PHP Deprecated:  PDOStatement::fetchAll(): Passing null to parameter #1 ($mode) of type int is deprecated in /var/www/html/MDT/src/classes/Database.php on line 60
+[09-Mar-2024 08:59:24 UTC] PHP Deprecated:  PDOStatement::fetchAll(): Passing null to parameter #1 ($mode) of type int is deprecated in /var/www/html/MDT/src/classes/Database.php on line 60

@@ -196,6 +196,34 @@ function drawMyOrdersTable() {
 	}
 }
 
+let myPaymentsTable;
+
+function drawMyPaymentsTable() {
+
+	if (myPaymentsTable) {
+		myPaymentsTable.draw();
+	} else {
+		myPaymentsTable = $('#myPaymentsTable').DataTable({
+			"order"			: [[0, "asc"]],
+			"columnDefs" 	: [{
+				"targets"  		: 'no-sort',
+				"orderable"		: false,
+			}],
+			"pageLength"	: 50,
+			"processing"	: true,
+			"serverSide" 	: true,
+			"ajax" 			: {
+				"url"			: "../php/ajax.php",
+				"type"			: "POST",
+				"data" 			: {"getMyPayments" : true},
+				"dataSrc"		: function(response) {
+					return response.data;
+				}
+			},
+			"deferRender"	: true
+		});
+	}
+}
 
 //	Hide Invoice details popup
 // $('body').on("click", function() {
@@ -326,6 +354,15 @@ $('#my_orders_link').on('click', function(e) {
 	$('.userForms').hide();
 	drawMyOrdersTable();
 	$('#myOrdersTableWrapper').show();
+
+});
+$('#my_payments_link').on('click', function(e) {
+
+	e.preventDefault();
+
+	$('.userForms').hide();
+	drawMyPaymentsTable();
+	$('#myPaymentsTableWrapper').show();
 
 });
 $('#update_password_link').on('click', function(e) {

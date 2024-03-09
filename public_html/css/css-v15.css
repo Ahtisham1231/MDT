@@ -951,6 +951,10 @@ footer {
 	width: 1000px;
 	margin: 20px auto;
 }
+#admin_dash_wrapper #myPaymentsTableWrapper {
+	width: 1000px;
+	margin: 20px auto;
+}
 #admin_dash_wrapper #productTableWrapper {
 	width: 1000px;
 	margin: 20px auto;
@@ -1126,6 +1130,9 @@ footer {
 #user_dash_wrapper #myOrdersTableWrapper, #user_dash_wrapper #form_requisition_to_supplier, #user_dash_wrapper #update_password_form {
 	display: none;
 }
+#user_dash_wrapper #myPaymentsTableWrapper, #user_dash_wrapper #form_requisition_to_supplier, #user_dash_wrapper #update_password_form {
+	display: none;
+}
 #user_dash_wrapper {
 	display: flex;
 }
@@ -1144,6 +1151,10 @@ footer {
 	margin: 10px auto;
 }
 #user_dash_wrapper #myOrdersTableWrapper {
+	width: 1000px;
+	margin: 20px auto;
+}
+#user_dash_wrapper #myPaymentsTableWrapper {
 	width: 1000px;
 	margin: 20px auto;
 }
@@ -1331,6 +1342,10 @@ footer {
 	width: 900px;
 	margin: 20px;
     }
+	#user_dash_wrapper #myPaymentsTableWrapper {
+		width: 900px;
+		margin: 20px;
+		}
     #admin_dash_wrapper #supplierInvoicesTableWrapper {
     width: 900px;
     margin: 20px;
@@ -1439,6 +1454,10 @@ footer {
 	overflow-x: scroll;
     border: 1px solid #f2f2f2;
     }
+	#user_dash_wrapper #myPaymentsTableWrapper {
+		overflow-x: scroll;
+		border: 1px solid #f2f2f2;
+		}
     #suppliersTable_wrapper,#supplierInvoicesTable_wrapper,#customersTable_wrapper,#customerInvoicesTable_wrapper,#stockTable_wrapper {
     width: 800px;
     padding: 10px;
@@ -1451,6 +1470,10 @@ footer {
     width: 800px;
     padding: 10px;
     }
+	#myPaymentsTable_wrapper {
+		width: 800px;
+		padding: 10px;
+		}
     #admin_dash_wrapper #supplierInvoicesTableWrapper {
     overflow-x: scroll;
     border: 1px solid #f2f2f2;

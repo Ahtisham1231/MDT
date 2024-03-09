@@ -680,6 +680,96 @@ if (isset($_POST['getMyOrders'])) {
 	die(json_encode($json, JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK));
 }
 
+if (isset($_POST['getMyPayments'])) {
+	
+	$params = $columns = $totalRecords = $data = [];
+	$params = $_POST;
+	$id 	= $_SESSION['userID'];
+
+	$columns = [
+		0 => 'id',
+		1 => 'amount',
+		2 => 'date',
+		3 => 'status',
+	];
+
+	$where_condition = '';
+
+	$where_condition = '';
+
+	$sqlRec = "
+		SELECT
+			p.id,
+			u.username AS customer,
+			u.id AS customerID,
+			p.amount,
+			p.date,
+			p.status,
+			p.user_id
+		FROM
+			payments as p
+		JOIN
+			users as u
+		ON
+			p.user_id = u.id
+		WHERE
+			p.type = 1
+		AND
+			p.user_id = :user_id
+		";
+		
+
+		if (!empty($params['search']['value'])) {
+			$where_condition .=	" AND ";
+			$where_condition .= "( p.id LIKE '%" . $params['search']['value'] . "%' ";
+			$where_condition .= " OR p.amount LIKE '%" . $params['search']['value'] . "%' ";
+			$where_condition .= " OR u.username LIKE '%" . $params['search']['value'] . "%' ";
+			$where_condition .= " OR p.date LIKE '%" . $params['search']['value'] . "%' )";
+		}
+
+	if (isset($where_condition) && $where_condition != '') {
+		$sqlRec .= $where_condition;
+	}
+
+	$sqlRec .=  " ORDER BY " . $columns[$params['order'][0]['column']] . "   " . $params['order'][0]['dir'] . "  LIMIT " . $params['start'] . " ," . $params['length'] . " ";
+	
+	$data = [];
+	$totalRecords = $db->getColumn("SELECT COUNT(id) FROM payments WHERE type = 1 AND user_id = :user_id", ['user_id' => $id]);
+	
+	$queryRecords = $db->getRows($sqlRec, ['user_id' => $id]);
+	$data = [];
+
+	foreach ($queryRecords as $row) {
+
+		$formattedAmount	= '$' . number_format($row->amount, 2);
+		$showDate 			= date('m-d-Y', strtotime($row->date));
+
+		if ($row->status == 1) {
+			$statusName = 'Processing';
+		} elseif ($row->status == 2) {
+			$statusName = 'Pending';
+		} else {
+			$statusName = 'Complete';
+		}
+
+		$data[] = [
+			$row->id,
+			$formattedAmount,
+			$showDate,
+			$statusName,
+		];
+	}
+
+	$json = [
+		"draw"            => intval($params['draw']),
+		"recordsTotal"    => intval($totalRecords),
+		"recordsFiltered" => intval($totalRecords),
+		"data"            => $data,
+	];
+
+	die(json_encode($json, JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK));
+}
+
 //	Buyer invoice details
 if (isset($_POST['buyerInvoiceDetails'])) {
 
