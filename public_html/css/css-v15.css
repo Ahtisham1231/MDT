@@ -1164,6 +1164,9 @@ footer {
 #myInvoicesTotal, #myBalance {
 	text-align: right;
 }
+#myMypayemtsTotal, #myBalance {
+	text-align: right;
+}
 
 .info_messages {
 	text-align: center;

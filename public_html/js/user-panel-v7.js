@@ -217,6 +217,7 @@ function drawMyPaymentsTable() {
 				"type"			: "POST",
 				"data" 			: {"getMyPayments" : true},
 				"dataSrc"		: function(response) {
+					$('#myMypayemtsTotal').text('Complete total : ' + response.total);
 					return response.data;
 				}
 			},

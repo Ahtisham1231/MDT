@@ -735,7 +735,9 @@ if (isset($_POST['getMyPayments'])) {
 	
 	$data = [];
 	$totalRecords = $db->getColumn("SELECT COUNT(id) FROM payments WHERE type = 1 AND user_id = :user_id", ['user_id' => $id]);
-	
+	$sqlTotal 	= "SELECT SUM(amount) FROM payments WHERE user_id = :id AND status = 3";
+	$total 		= $db->getColumn($sqlTotal, ['id' => $_SESSION['userID']]);
+	$total 		= '$' . number_format($total, 2);
 	$queryRecords = $db->getRows($sqlRec, ['user_id' => $id]);
 	$data = [];
 
@@ -765,6 +767,7 @@ if (isset($_POST['getMyPayments'])) {
 		"recordsTotal"    => intval($totalRecords),
 		"recordsFiltered" => intval($totalRecords),
 		"data"            => $data,
+		"total"			  => $total 	
 	];
 
 	die(json_encode($json, JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK));

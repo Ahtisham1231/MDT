@@ -214,7 +214,9 @@ require_once SRC . 'controller/user-panel.php';
 						<tbody>
 						</tbody>
 					</table>
-					
+					<br>
+					<div id="myMypayemtsTotal"></div>
+					<br>
 
 				</div>
 
