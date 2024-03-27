@@ -6,6 +6,7 @@ if (isset($_POST['getCustomersList'])) {
 
 	$params = $columns = $totalRecords = $data = [];
 	$params = $_POST;
+	$active = isset($params['active']) ? intval($params['active']) : 1; 
 
 	$columns = [
 		0 => 'username',
@@ -26,8 +27,10 @@ if (isset($_POST['getCustomersList'])) {
 			users
 		WHERE
 			role = 2
+		AND 
+			active = $active	
 		";
-
+	// echo $sql;die;
 	if (!empty($params['search']['value'])) {
 		$where_condition .=	" AND ";
 		$where_condition .= " username LIKE '%" . $params['search']['value'] . "%' ";
@@ -39,7 +42,7 @@ if (isset($_POST['getCustomersList'])) {
 
 	$sqlRec .=  " ORDER BY " . $columns[$params['order'][0]['column']] . "   " . $params['order'][0]['dir'] . "  LIMIT " . $params['start'] . " ," . $params['length'] . " ";
 
-	$totalRecords = $db->getColumn("SELECT COUNT(id) FROM users WHERE role = 2");
+	$totalRecords = $db->getColumn("SELECT COUNT(id) FROM users WHERE role = 2 AND active = $active");
 	$queryRecords = $db->getRows($sqlRec);
 
 	$data = [];
@@ -59,7 +62,7 @@ if (isset($_POST['getCustomersList'])) {
 		];
 	}
 
-	$sqlTotal 	= "SELECT SUM(balance) FROM users WHERE role = 2";
+	$sqlTotal 	= "SELECT SUM(balance) FROM users WHERE role = 2 AND active = $active";
 	$total 		= $db->getColumn($sqlTotal);
 	$total 		= '$' . number_format($total, 2);
 

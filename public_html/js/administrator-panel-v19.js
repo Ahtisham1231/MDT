@@ -174,7 +174,7 @@ function drawCustomersTable() {
 
 	if (customersTable) {
 		customersTable.draw();
-		return;
+		return; 
 	}
 
 	customersTable = $('#customersTable').DataTable({
@@ -431,7 +431,6 @@ function drawStockTable() {
 // Define the toggleCheckbox function
 function toggleCheckbox(event) {
     event.preventDefault();
-
     // Remove the event listener temporarily
     this.removeEventListener("click", toggleCheckbox);
 
@@ -440,8 +439,67 @@ function toggleCheckbox(event) {
 	
 
     var checkboxValue = this.querySelector('input[type="checkbox"]').value;
-
+	if(invenName == 'customers'){
+		var updatecheckbox = 1; 
+		if(checkboxValue == 1){
+			updatecheckbox = 0;
+		}
+		$('#customersTable').dataTable().fnDestroy(); 
 		
+		$('#toggleSwitchCustomers').val(updatecheckbox);
+		let status = updatecheckbox;
+		customersTable = $('#customersTable').DataTable({
+			"order"			: [[0, "asc"]],
+			"columnDefs" 	: [{
+				"targets"  		: 'no-sort',
+				"orderable"		: false,
+			}],
+			"pageLength"	: 50,
+			"processing"	: true,
+			"serverSide" 	: true,
+			"ajax" 			: {
+				"url"			: "../php/ajax.php",
+				"type"			: "POST",
+				"data"			: {"getCustomersList" : true, "active" : status},
+				"dataSrc"		: function(response) {
+					$('#totalCustomersDebt').text('Total customers debt: ' +  response.total);
+					return response.data;
+				}
+			},
+			"deferRender"	: true
+		});
+	}
+	if(invenName == 'suppliers'){
+		var updatecheckbox = 1; 
+		if(checkboxValue == 1){
+			updatecheckbox = 0;
+		}
+		$('#suppliersTable').dataTable().fnDestroy(); 
+		
+		$('#toggleSwitchSuppliers').val(updatecheckbox);
+		let status = updatecheckbox;
+		
+		suppliersTable = $('#suppliersTable').DataTable({
+			"order"			: [[0, "asc"]],
+			"columnDefs" 	: [{
+				"targets"  		: 'no-sort',
+				"orderable"		: false,
+			}],
+			"pageLength"	: 50,
+			"processing"	: true,
+			"serverSide" 	: true,
+			"ajax" 			: {
+				"url"			: "../php/ajax.php",
+				"type"			: "POST",
+				"data"			: {"getSuppliers" : true, "active" : status },
+				"dataSrc"		: function(response) {
+					$('#totalDebtToSuppliers').text('Total debt to suppliers: ' + response.total);
+					return response.data;
+				}
+			},
+			"deferRender"	: true
+		});
+	}	
 		if(invenName == 'CustomerPrice'){
 			var updatecheckbox = 1; 
 			if(checkboxValue == 1){

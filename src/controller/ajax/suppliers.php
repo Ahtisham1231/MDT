@@ -385,6 +385,7 @@ if (isset($_POST['getSuppliers'])) {
 
 	$params = $columns = $totalRecords = $data = [];
 	$params = $_POST;
+	$active = isset($params['active']) ? intval($params['active']) : 1; 
 
 	$columns = [
 		0 => 'supplier',
@@ -401,6 +402,8 @@ if (isset($_POST['getSuppliers'])) {
 			balance
 		FROM
 			suppliers
+		WHERE
+			active = $active	
 		";
 
 	if (!empty($params['search']['value'])) {
@@ -414,7 +417,7 @@ if (isset($_POST['getSuppliers'])) {
 
 	$sql .=  " ORDER BY " . $columns[$params['order'][0]['column']] . "   " . $params['order'][0]['dir'] . "  LIMIT " . $params['start'] . " ," . $params['length'] . " ";
 
-	$totalRecords = $db->getColumn("SELECT COUNT(id) FROM suppliers");
+	$totalRecords = $db->getColumn("SELECT COUNT(id) FROM suppliers WHERE active = $active");
 	$queryRecords = $db->getRows($sql);
 
 	$data = [];
@@ -432,7 +435,7 @@ if (isset($_POST['getSuppliers'])) {
 		];
 	}
 
-	$sqlTotal 	= "SELECT SUM(balance) FROM suppliers";
+	$sqlTotal 	= "SELECT SUM(balance) FROM suppliers WHERE active = $active";
 	$total 		= $db->getColumn($sqlTotal);
 	$total 		= '$' . number_format($total, 2);
 

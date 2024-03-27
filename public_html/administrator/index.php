@@ -106,7 +106,9 @@ require_once SRC . 'controller/administrator-panel.php';
 				<div id="admin_suppliers" class="propThumbCl">
 					<div class="adminLabels">
 						<div class="adminIcons"><i class="fas fa-truck"></i></div>
-						<h5>Suppliers</h5>
+						<h5>Suppliers
+							
+						</h5>
 						<div class="subMenuButton"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-up"></i></div>
 					</div>
 					<div class="adminSubMenus">
@@ -180,7 +182,12 @@ require_once SRC . 'controller/administrator-panel.php';
 			</div><!-- form_thumb_main_wrapp -->
 
 			<div id="suppliersTableWrapper" class="adminBoards">
-				<h3>Suppliers</h3>
+				<h3>Suppliers
+				<label class="switch toggleSwitch" data-invenName="suppliers">
+								<input type="checkbox" checked id="toggleSwitchSuppliers" name="toggleSwitchSuppliers" value="1">
+								<span class="slider round"></span>
+							</label>
+				</h3>
 				<table id="suppliersTable">
 					<thead>
 						<tr>
@@ -379,7 +386,12 @@ require_once SRC . 'controller/administrator-panel.php';
 			</div>
 
 			<div id="customersTableWrapper" class="adminBoards">
-				<h3>Customers</h3>
+			<h3>Customers
+				<label class="switch toggleSwitch" data-invenName="customers">
+						<input type="checkbox" checked id="toggleSwitchCustomers" name="toggleSwitchCustomers" value="1">
+						<span class="slider round"></span>
+				</label>
+			</h3>
 				<table id="customersTable">
 					<thead>
 						<tr>
